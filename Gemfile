@@ -33,11 +33,18 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 # gem 'capistrano-rails', group: :development
 
 group :development, :test do
-  # Call 'byebug' anywhere in the code to stop execution and get a debugger console
-  gem 'byebug'
+   gem 'rspec-rails'
+   gem 'factory_girl_rails', '~> 4.0'
+   gem 'simplecov', require: false
+   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
+   gem 'byebug'
 end
 
 group :development do
+  gem 'pry-rails'
+  # Better Errors for debugging
+  gem 'better_errors'
+  gem 'binding_of_caller'
   # Access an IRB console on exception pages or by using <%= console %> in views
   gem 'web-console', '~> 2.0'
 
@@ -45,3 +52,6 @@ group :development do
   gem 'spring'
 end
 
+group :production do
+  gem 'pg'
+end
