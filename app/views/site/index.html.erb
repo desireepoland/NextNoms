@@ -1,1 +1,12 @@
-
+<div id="map"></div>
+<script>
+  function initMap() {
+    var mapDiv = document.getElementById('map');
+    var map = new google.maps.Map(mapDiv, {
+      center: {lat: 47.608, lng:  -122.335},
+      zoom: 12
+    });
+  }
+</script>
+<script src="https://maps.googleapis.com/maps/api/js?callback=initMap"
+    async defer></script>
