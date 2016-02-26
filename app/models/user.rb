@@ -8,7 +8,7 @@ class User < ActiveRecord::Base
       user.uid = auth_hash["uid"]
       user.name = auth_hash["info"]["name"]
       user.provider   = auth_hash["provider"]
-      user.image_url = auth_hash["info"]["image"]
+      user.avatar_url = auth_hash["info"]["image"]
       if user.save
         user
       else
