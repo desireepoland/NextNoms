@@ -31,6 +31,8 @@ gem 'react-rails', '~> 1.6.0'
 gem "omniauth"
 gem 'omniauth-facebook'
 
+gem 'httparty'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
@@ -41,12 +43,16 @@ gem 'omniauth-facebook'
 # gem 'capistrano-rails', group: :development
 
 group :development, :test do
-    gem 'dotenv-rails'
+   gem 'dotenv-rails'
    gem 'rspec-rails'
-   gem 'factory_girl_rails', '~> 4.0'
    gem 'simplecov', require: false
    # Call 'byebug' anywhere in the code to stop execution and get a debugger console
    gem 'byebug'
+end
+
+group :test do
+  gem 'shoulda-matchers', '~> 3.0'
+  gem "factory_girl_rails", "~> 4.0"
 end
 
 group :development do
