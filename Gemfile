@@ -44,7 +44,6 @@ gem 'httparty'
 
 group :development, :test do
    gem 'dotenv-rails'
-   gem 'rspec-rails'
    gem 'simplecov', require: false
    # Call 'byebug' anywhere in the code to stop execution and get a debugger console
    gem 'byebug'
@@ -56,6 +55,7 @@ group :test do
 end
 
 group :development do
+  gem 'rspec-rails', '~> 3.0'
   gem 'pry-rails'
   # Better Errors for debugging
   gem 'better_errors'

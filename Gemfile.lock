@@ -246,7 +246,7 @@ DEPENDENCIES
   pry-rails
   rails (= 4.2.5.1)
   react-rails (~> 1.6.0)
-  rspec-rails
+  rspec-rails (~> 3.0)
   sass-rails (~> 5.0)
   sdoc (~> 0.4.0)
   shoulda-matchers (~> 3.0)
