@@ -79,6 +79,20 @@ function initMap() {
     });
     map.fitBounds(bounds);
   });
+
+  var service = new google.maps.places.PlacesService(map);
+  $(".restaurant").each(function(index){
+    var placeId = $(this).data('place-id');
+    var request = {
+      placeId: placeId
+    }
+    var self = $(this);
+    service.getDetails(request, function(result, status){
+      if (status == google.maps.places.PlacesServiceStatus.OK) {
+        self.text(result.name);
+      }
+    });
+  });
 }
 
 function handleLocationError(browserHasGeolocation, infoWindow, pos) {
