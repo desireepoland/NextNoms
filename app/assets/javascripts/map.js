@@ -102,7 +102,8 @@ function initMap() {
 
         //on click of marker display place info
         google.maps.event.addListener(marker, 'click', function () {
-          infowindow.setContent(place.name);
+          infowindow.setContent('<div><strong>' + place.name + '</strong><br>' +
+          place.formatted_address + '</div>');
           infowindow.open(map, this);
         });
       }
