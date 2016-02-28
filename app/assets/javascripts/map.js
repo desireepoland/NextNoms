@@ -80,7 +80,7 @@ function initMap() {
         $(".add-nom").on("click", function(){
           $.post("/restaurants", {place_id: place.place_id})
           .done(function(data) {
-            console.log("POST DONE");
+            document.location.reload(true);
           })
           .fail(function(){
             console.log("POST FAIL");
@@ -110,7 +110,6 @@ function initMap() {
       if (status == google.maps.places.PlacesServiceStatus.OK) {
         // List each restaurant's name
         self.text(place.name);
-        console.log(place);
 
         // Add a marker on map for each restaurant
         var marker = new google.maps.Marker({
