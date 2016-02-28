@@ -63,12 +63,20 @@ function initMap() {
       };
 
       // Create a marker for each place.
-      markers.push(new google.maps.Marker({
+      var marker = new google.maps.Marker({
         map: map,
         icon: icon,
         title: place.name,
         position: place.geometry.location
-      }));
+      })
+      markers.push(marker);
+
+      //on click of marker display place info
+      google.maps.event.addListener(marker, 'click', function () {
+        infowindow.setContent('<div><strong>' + place.name + '</strong><br>' +
+        place.formatted_address + '<br> Add To My NextNoms</div>');
+        infowindow.open(map, this);
+      });
 
       if (place.geometry.viewport) {
         // Only geocodes have viewport.
