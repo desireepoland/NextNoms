@@ -80,6 +80,7 @@ function initMap() {
     map.fitBounds(bounds);
   });
 
+  var infowindow = new google.maps.InfoWindow();
   var service = new google.maps.places.PlacesService(map);
   $(".restaurant").each(function(index){
     var placeId = $(this).data('place-id');
@@ -87,15 +88,23 @@ function initMap() {
       placeId: placeId
     }
     var self = $(this);
-    service.getDetails(request, function(result, status){
+    service.getDetails(request, function(place, status){
       if (status == google.maps.places.PlacesServiceStatus.OK) {
-        self.text(result.name);
-        console.log(result);
+        // List each restaurant's name
+        self.text(place.name);
+        console.log(place);
 
+        // Add a marker on map for each restaurant
         var marker = new google.maps.Marker({
-                map: map,
-                position: result.geometry.location
-            });
+          map: map,
+          position: place.geometry.location
+        });
+
+        //on click of marker display place info
+        google.maps.event.addListener(marker, 'click', function () {
+          infowindow.setContent(place.name);
+          infowindow.open(map, this);
+        });
       }
     });
   });
