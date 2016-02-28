@@ -1,5 +1,6 @@
 class User < ActiveRecord::Base
-  has_and_belongs_to_many :restaurants
+  has_many :restaurants, :through => :users_restaurants
+  has_many :users_restaurants
 
   def self.find_or_create_from_omniauth(auth_hash)
     user = self.find_by(uid: auth_hash["uid"])
