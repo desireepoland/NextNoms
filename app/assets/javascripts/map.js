@@ -90,6 +90,12 @@ function initMap() {
     service.getDetails(request, function(result, status){
       if (status == google.maps.places.PlacesServiceStatus.OK) {
         self.text(result.name);
+        console.log(result);
+
+        var marker = new google.maps.Marker({
+                map: map,
+                position: result.geometry.location
+            });
       }
     });
   });
