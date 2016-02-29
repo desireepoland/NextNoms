@@ -4,4 +4,9 @@ class RestaurantsController < ApplicationController
     current_user.restaurants << restaurant unless current_user.restaurants.include?(restaurant)
     redirect_to root_path
   end
+
+  def destroy
+    UsersRestaurant.find(params[:id]).destroy
+    redirect_to root_path
+  end
 end
