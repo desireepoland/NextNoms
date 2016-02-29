@@ -1,12 +1,15 @@
 <input id="pac-input" class="controls" type="text" placeholder="Search Box">
 <div id="map"></div>
 <% if !@restaurants.nil? %>
-  <div id="restaurant_list">
-    <% @restaurants.each do |r| %>
-      <div class="restaurant" data-place-id="<%= r.place_id %>"></div>
-    <% end %>
-  </div>
+  <table id="restaurant_list">
+    <tbody>
+      <% @restaurants.each do |r| %>
+        <tr>
+          <td class="restaurant" data-place-id="<%= r.place_id %>"></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
 <% end %>
-<br>
 <script src="https://maps.googleapis.com/maps/api/js?key=<%= @key %>&callback=initMap&libraries=places"
     async defer></script>
