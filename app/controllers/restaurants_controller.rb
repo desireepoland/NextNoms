@@ -5,6 +5,12 @@ class RestaurantsController < ApplicationController
     redirect_to root_path
   end
 
+  def update
+    ur = UsersRestaurant.find(params[:id])
+    ur.toggle!(:tried)
+    redirect_to root_path
+  end
+
   def destroy
     UsersRestaurant.find(params[:id]).destroy
     redirect_to root_path
