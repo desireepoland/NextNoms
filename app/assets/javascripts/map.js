@@ -54,18 +54,11 @@ function initMap() {
     // search- For each place, get the icon, name and location.
     var bounds = new google.maps.LatLngBounds();
     places.forEach(function(place) {
-      var icon = {
-        url: place.icon,
-        size: new google.maps.Size(71, 71),
-        origin: new google.maps.Point(0, 0),
-        anchor: new google.maps.Point(17, 34),
-        scaledSize: new google.maps.Size(25, 25)
-      };
 
       //search- Create a marker for each place.
       var marker = new google.maps.Marker({
         map: map,
-        icon: icon,
+        icon: 'http://www.google.com/intl/en_us/mapfiles/ms/micons/yellow-dot.png',
         title: place.name,
         position: place.geometry.location
       })
