@@ -25,7 +25,7 @@ function initMap() {
     handleLocationError(false, infoWindow, map.getCenter());
   }
 
-  // Create the search box and link it to the UI element.
+  // search - Create the search box and link it to the UI element.
   var input = document.getElementById('pac-input');
   var searchBox = new google.maps.places.SearchBox(input);
   map.controls[google.maps.ControlPosition.TOP_LEFT].push(input);
@@ -36,7 +36,7 @@ function initMap() {
   });
 
   var markers = [];
-  // Listen for the event fired when the user selects a prediction and retrieve
+  // search - Listen for the event fired when the user selects a prediction and retrieve
   // more details for that place.
   searchBox.addListener('places_changed', function() {
     var places = searchBox.getPlaces();
@@ -45,13 +45,13 @@ function initMap() {
       return;
     }
 
-    // Clear out the old markers.
+    // search- Clear out the old markers.
     markers.forEach(function(marker) {
       marker.setMap(null);
     });
     markers = [];
 
-    // For each place, get the icon, name and location.
+    // search- For each place, get the icon, name and location.
     var bounds = new google.maps.LatLngBounds();
     places.forEach(function(place) {
       var icon = {
@@ -62,7 +62,7 @@ function initMap() {
         scaledSize: new google.maps.Size(25, 25)
       };
 
-      // Create a marker for each place.
+      //search- Create a marker for each place.
       var marker = new google.maps.Marker({
         map: map,
         icon: icon,
@@ -71,7 +71,7 @@ function initMap() {
       })
       markers.push(marker);
 
-      //on click of marker display place info
+      //search- on click of marker display place info
       google.maps.event.addListener(marker, 'click', function () {
         infowindow.setContent('<div><strong>' + place.name + '</strong><br>' +
         place.formatted_address + '<br> <a href="#" class="add-nom">Add To My NextNoms</a></div>');
@@ -98,8 +98,10 @@ function initMap() {
     map.fitBounds(bounds);
   });
 
+  // Set up for display of user restaurants
   var infowindow = new google.maps.InfoWindow();
   var service = new google.maps.places.PlacesService(map);
+  // For each active restaurant, display a marker and listing
   $(".restaurant").each(function(index){
     var placeId = $(this).data('place-id');
     var request = {
@@ -115,6 +117,35 @@ function initMap() {
         var marker = new google.maps.Marker({
           map: map,
           position: place.geometry.location
+        });
+
+        //on click of marker display place info
+        google.maps.event.addListener(marker, 'click', function () {
+          infowindow.setContent('<div><strong>' + place.name + '</strong><br>' +
+          place.formatted_address + '</div>');
+          infowindow.open(map, this);
+        });
+      }
+    });
+  });
+
+  // For each tried restaurant, display a marker and listing
+  $(".tried_restaurant").each(function(index){
+    var placeId = $(this).data('place-id');
+    var request = {
+      placeId: placeId
+    }
+    var self = $(this);
+    service.getDetails(request, function(place, status){
+      if (status == google.maps.places.PlacesServiceStatus.OK) {
+        // List each restaurant's name
+        self.text(place.name);
+
+        // Add a marker on map for each restaurant
+        var marker = new google.maps.Marker({
+          map: map,
+          position: place.geometry.location,
+          icon: 'http://www.google.com/intl/en_us/mapfiles/ms/micons/purple-dot.png'
         });
 
         //on click of marker display place info
