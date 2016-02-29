@@ -1,19 +1,19 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>NextNoms</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-  <%= csrf_meta_tags %>
-</head>
-<body>
-<% if logged_in? %>
-  Hi <%= current_user.name %><br>
-  <%= yield %>
-  <br>
-  <%= link_to "Log Out", logout_path, method: :delete %>
-<% else %>
-  <%= link_to "Log In", "/auth/facebook" %>
-<% end %>
-</body>
+  <head>
+    <title>NextNoms</title>
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+    <%= csrf_meta_tags %>
+  </head>
+  <body>
+    <% if logged_in? %>
+      Hi <%= current_user.name %><br>
+      <%= yield %>
+      <br>
+      <%= link_to "Log Out", logout_path, method: :delete %>
+    <% else %>
+      <%= link_to "Log In", "/auth/facebook" %>
+    <% end %>
+  </body>
 </html>
