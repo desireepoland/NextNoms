@@ -1,11 +1,26 @@
 <input id="pac-input" class="controls" type="text" placeholder="Find a Restaurant">
 <div id="map"></div>
-<% if !@restaurants.nil? %>
-  <table id="restaurant_list">
+<% if !@active_restaurants.nil? %>
+  <table>
     <tbody>
-      <% @restaurants.each do |r| %>
+      <% @active_restaurants.each do |r| %>
         <tr>
+          <td>☐</td>
           <td class="restaurant" data-place-id="<%= r.place_id %>"></td>
+          <td><%= link_to "✕",  { :controller=>"restaurants", action: :destroy, :id => r.users_restaurants.find_by(user: current_user).id}, method: :delete, data: { confirm: 'Delete this restaurant?' } %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+<% end %>
+
+<% if !@tried_restaurants.nil? %>
+  <table>
+    <tbody>
+      <% @tried_restaurants.each do |r| %>
+        <tr>
+          <td>☑︎</td>
+          <td class="tried_restaurant" data-place-id="<%= r.place_id %>"></td>
           <td><%= link_to "✕",  { :controller=>"restaurants", action: :destroy, :id => r.users_restaurants.find_by(user: current_user).id}, method: :delete, data: { confirm: 'Delete this restaurant?' } %></td>
         </tr>
       <% end %>
