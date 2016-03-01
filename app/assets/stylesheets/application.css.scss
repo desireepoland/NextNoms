@@ -50,3 +50,13 @@
 #target {
   width: 345px;
 }
+
+section{
+  @include outer-container;
+  #map{
+    @include span-columns(6);
+  }
+  table {
+    @include span-columns(6);
+  }
+}
