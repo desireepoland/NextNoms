@@ -124,7 +124,7 @@ function initMap() {
     });
   };
 
-  var activeColor = 'http://www.google.com/intl/en_us/mapfiles/ms/micons/yellow-dot.png';
+  var activeColor = 'http://www.google.com/intl/en_us/mapfiles/ms/micons/red-dot.png';
   var triedColor = 'http://www.google.com/intl/en_us/mapfiles/ms/micons/purple-dot.png';
   // use el instead of this inside code
   $(".restaurant").each($.proxy(displayRestaurant, null, activeColor));
