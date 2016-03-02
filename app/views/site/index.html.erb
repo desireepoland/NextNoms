@@ -9,13 +9,14 @@
                               { restaurant: r.place_id } %> -->
           <tr>
             <% if !r.users_restaurants.find_by(user: current_user).tried? %>
-              <td><%= link_to '☐', { :controller=>"restaurants", action: :update, :id => r.users_restaurants.find_by(user: current_user).id}, method: :patch %></td>
+              <td><%= link_to '<i class="fa fa-square-o fa-fw"></i>'.html_safe, { :controller=>"restaurants", action: :update, :id => r.users_restaurants.find_by(user: current_user).id}, method: :patch %></td>
               <td class="restaurant" data-place-id="<%= r.place_id %>"></td>
+              <td><%= link_to '<i class="fa fa-trash-o"></i>'.html_safe,  { :controller=>"restaurants", action: :destroy, :id => r.users_restaurants.find_by(user: current_user).id}, method: :delete, data: { confirm: 'Delete this restaurant?' } %></td>
             <% else %>
-              <td><%= link_to '☑︎', { :controller=>"restaurants", action: :update, :id => r.users_restaurants.find_by(user: current_user).id}, method: :patch %></td>
+              <td><%= link_to '<i class="fa fa-check-square-o fa-fw"></i>'.html_safe, { :controller=>"restaurants", action: :update, :id => r.users_restaurants.find_by(user: current_user).id}, method: :patch %></td>
               <td class="tried_restaurant" data-place-id="<%= r.place_id %>"></td>
+              <td><%= link_to '<i class="fa fa-trash-o"></i>'.html_safe,  { :controller=>"restaurants", action: :destroy, :id => r.users_restaurants.find_by(user: current_user).id}, method: :delete, data: { confirm: 'Delete this restaurant?' } %></td>
             <% end %>
-            <td><%= link_to "✕",  { :controller=>"restaurants", action: :destroy, :id => r.users_restaurants.find_by(user: current_user).id}, method: :delete, data: { confirm: 'Delete this restaurant?' } %></td>
           </tr>
         <% end %>
       </tbody>
