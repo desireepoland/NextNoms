@@ -1,28 +1,21 @@
 <section>
   <input id="pac-input" class="controls" type="text" placeholder="Find a Restaurant">
   <div id="map"></div>
-  <% if !@active_restaurants.nil? || !@tried_restaurants.nil?%>
+  <% if !@restaurants.nil? %>
     <table>
       <tbody>
-        <% if !@active_restaurants.nil? %>
-          <% @active_restaurants.each do |r| %>
-            <%= react_component "Restaurant",
-                                { restaurant: r.place_id } %>
-            <tr>
+        <% @restaurants.each do |r| %>
+          <%= react_component "Restaurant",
+                              { restaurant: r.place_id } %>
+          <tr>
+            <% if !r.users_restaurants.find_by(user: current_user).tried? %>
               <td><%= link_to '☐', { :controller=>"restaurants", action: :update, :id => r.users_restaurants.find_by(user: current_user).id}, method: :patch %></td>
-              <td class="restaurant" data-place-id="<%= r.place_id %>"></td>
-              <td><%= link_to "✕",  { :controller=>"restaurants", action: :destroy, :id => r.users_restaurants.find_by(user: current_user).id}, method: :delete, data: { confirm: 'Delete this restaurant?' } %></td>
-            </tr>
-          <% end %>
-        <% end %>
-        <% if !@tried_restaurants.nil? %>
-          <% @tried_restaurants.each do |r| %>
-            <tr>
+            <% else %>
               <td><%= link_to '☑︎', { :controller=>"restaurants", action: :update, :id => r.users_restaurants.find_by(user: current_user).id}, method: :patch %></td>
-              <td class="tried_restaurant" data-place-id="<%= r.place_id %>"></td>
-              <td><%= link_to "✕",  { :controller=>"restaurants", action: :destroy, :id => r.users_restaurants.find_by(user: current_user).id}, method: :delete, data: { confirm: 'Delete this restaurant?' } %></td>
-            </tr>
-          <% end %>
+            <% end %>
+            <td class="restaurant" data-place-id="<%= r.place_id %>"></td>
+            <td><%= link_to "✕",  { :controller=>"restaurants", action: :destroy, :id => r.users_restaurants.find_by(user: current_user).id}, method: :delete, data: { confirm: 'Delete this restaurant?' } %></td>
+          </tr>
         <% end %>
       </tbody>
     </table>
