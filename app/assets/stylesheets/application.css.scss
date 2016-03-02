@@ -19,7 +19,7 @@ $small-tablet-down: new-breakpoint(max-width $large-tablet-width, 8);
 $tablet-down: new-breakpoint(max-width $desktop, 8);
 
 #map {
-   width: 60%;
+   width: 100%;
    height: 500px;
 }
 .controls {
