@@ -6,6 +6,8 @@
       <tbody>
         <% if !@active_restaurants.nil? %>
           <% @active_restaurants.each do |r| %>
+            <%= react_component "Restaurant",
+                                { restaurant: r.place_id } %>
             <tr>
               <td><%= link_to '☐', { :controller=>"restaurants", action: :update, :id => r.users_restaurants.find_by(user: current_user).id}, method: :patch %></td>
               <td class="restaurant" data-place-id="<%= r.place_id %>"></td>
