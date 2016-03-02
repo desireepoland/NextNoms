@@ -95,7 +95,7 @@ function initMap() {
   var infowindow = new google.maps.InfoWindow();
   var service = new google.maps.places.PlacesService(map);
 
-  // For each restaurant, display a marker and listing
+  // For each active restaurant, display a marker and listing
   $(".restaurant").each(function(index){
     var placeId = $(this).data('place-id');
     var request = {
@@ -111,6 +111,35 @@ function initMap() {
         var marker = new google.maps.Marker({
           map: map,
           position: place.geometry.location
+        });
+
+        //on click of marker display place info
+        google.maps.event.addListener(marker, 'click', function () {
+          infowindow.setContent('<div><strong>' + place.name + '</strong><br>' +
+          place.formatted_address + '</div>');
+          infowindow.open(map, this);
+        });
+      }
+    });
+  });
+
+  // For each tried restaurant, display a marker and listing
+  $(".tried_restaurant").each(function(index){
+    var placeId = $(this).data('place-id');
+    var request = {
+      placeId: placeId
+    }
+    var self = $(this);
+    service.getDetails(request, function(place, status){
+      if (status == google.maps.places.PlacesServiceStatus.OK) {
+        // List each restaurant's name
+        self.text(place.name);
+
+        // Add a marker on map for each restaurant
+        var marker = new google.maps.Marker({
+          map: map,
+          position: place.geometry.location,
+          icon: 'http://www.google.com/intl/en_us/mapfiles/ms/micons/purple-dot.png'
         });
 
         //on click of marker display place info
