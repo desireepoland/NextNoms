@@ -5,8 +5,8 @@
     <table>
       <tbody>
         <% @restaurants.each do |r| %>
-          <%= react_component "Restaurant",
-                              { restaurant: r.place_id } %>
+          <!-- <%= react_component "Restaurant",
+                              { restaurant: r.place_id } %> -->
           <tr>
             <% if !r.users_restaurants.find_by(user: current_user).tried? %>
               <td><%= link_to '☐', { :controller=>"restaurants", action: :update, :id => r.users_restaurants.find_by(user: current_user).id}, method: :patch %></td>
