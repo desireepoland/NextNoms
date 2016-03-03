@@ -106,7 +106,12 @@ function initMap() {
       if (status === google.maps.places.PlacesServiceStatus.OK) {
         // List each restaurant's name
         self.text(place.name);
-        $("#"+placeId).find('div').prepend(place.name +"<br>");
+        $("#"+placeId).find('div').prepend(
+          place.formatted_address + "<br>" +
+          place.formatted_phone_number + "<br>" +
+          place.website + "<br>" +
+          place.opening_hours.open_now +"<br>"
+        );
 
         // Add a marker on map for each restaurant
         var marker = new google.maps.Marker({
