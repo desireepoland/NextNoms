@@ -47,8 +47,11 @@
     display: none;
   }
 }
-.checkbox{
+.checkbox {
   float: left;
+  a {
+    color: black;
+  }
 }
 // .delete-r{
 //   text-align: right;
