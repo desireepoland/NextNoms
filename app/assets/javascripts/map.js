@@ -119,6 +119,8 @@ function initMap() {
           infowindow.setContent('<div><strong>' + place.name + '</strong><br>' +
           place.formatted_address + '</div>');
           infowindow.open(map, this);
+          map.setCenter(marker.getPosition());
+          document.getElementById(placeId).className = "selected";
         });
       }
     });

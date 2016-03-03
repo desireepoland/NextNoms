@@ -7,7 +7,7 @@
         <% @restaurants.each do |r| %>
           <!-- <%= react_component "Restaurant",
                               { restaurant: r.place_id } %> -->
-          <tr>
+          <tr id="<%= r.place_id %>">
             <% if !r.users_restaurants.find_by(user: current_user).tried? %>
               <td><%= link_to '<i class="fa fa-square-o fa-fw"></i>'.html_safe, { :controller=>"restaurants", action: :update, :id => r.users_restaurants.find_by(user: current_user).id}, method: :patch %></td>
               <td class="restaurant" data-place-id="<%= r.place_id %>"></td>

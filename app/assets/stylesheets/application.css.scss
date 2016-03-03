@@ -76,3 +76,7 @@ section{
     @include span-columns(5);
   }
 }
+
+.selected {
+  background-color: yellow;
+}
