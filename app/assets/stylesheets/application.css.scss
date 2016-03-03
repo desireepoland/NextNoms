@@ -66,16 +66,16 @@ $tablet-down: new-breakpoint(max-width $desktop, 8);
 
 #map {
    width: 100%;
-   height: 400px;
+   height: 500px;
 }
 
 section{
   @include outer-container;
   #map {
-    @include span-columns(6);
+    @include span-columns(7);
   }
-  ul {
-    @include span-columns(6);
+  .expander {
+    @include span-columns(5);
   }
 }
 
