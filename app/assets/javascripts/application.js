@@ -18,3 +18,8 @@
 //= require components
 
 //= require_tree .
+$(document).ready(function() {
+  $('.expander-trigger').click(function(){
+    $(this).toggleClass("expander-hidden");
+  });
+});

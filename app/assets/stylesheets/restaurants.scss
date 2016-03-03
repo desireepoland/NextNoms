@@ -1,33 +1,61 @@
-.table-minimal {
-  $base-border-color: gainsboro !default;
-  $base-border-radius: 3px !default;
-  $base-background-color: white !default;
+.expander {
+  $base-font-size: 1em !default;
   $base-line-height: 1.5em !default;
+  $base-spacing: 1.5em !default;
+  $action-color: #477DCA !default;
   $dark-gray: #333 !default;
   $light-gray: #DDD !default;
-  $medium-screen: em(640) !default;
-  $large-screen: em(860) !default;
-  $table-border-color: $base-border-color;
-  $table-background: $base-background-color;
-  $table-hover-background: darken($table-background, 2);
-  $table-padding: .75em 1em;
+  $base-font-color: $dark-gray !default;
+  $expander-arrow-width: 0.7em;
+  $expander-toggle-size: 1em;
+  $expander-toggle-arrow-size: $expander-toggle-size;
+  $expander-toggle-margin: 1em;
 
-  border-collapse: separate;
-  border-spacing: 0;
+  width: 60%;
 
-  tbody {
-    tr:hover > td, tr:hover > th {
-      background-color: $table-hover-background;
+  .expander-trigger {
+    @include user-select(none);
+    border-bottom: 1px solid $light-gray;
+    color: $action-color;
+    cursor: pointer;
+    display: block;
+    font-size: $expander-toggle-size;
+    margin-bottom: $expander-toggle-size;
+    padding-bottom: $expander-toggle-size / 4;
+    text-decoration: none;
+
+    &:before {
+      font-size: $expander-arrow-width;
+      content: "\25BC";
+      margin-right: 0.5em;
     }
   }
 
-  tbody {
-    background-color: $table-background;
+  .expander-content p {
+    color: $base-font-color;
+    line-height: $base-line-height;
+  }
 
-    td {
-      border-bottom: 1px solid $table-border-color;
-      line-height: $base-line-height;
-      padding: $table-padding;
+  .expander-hidden {
+    &:before {
+      font-size: $expander-arrow-width;
+      content: "\25BA";
     }
+  }
+
+  .expander-hidden + .expander-content {
+    display: none;
   }
 }
+ul
+{
+    list-style-type: none;
+}
+.checkbox{
+  float: left;
+}
+// .delete-r{
+//   text-align: right;
+//   display: inline-block;
+//   width: 100%;
+// }
