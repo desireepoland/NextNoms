@@ -123,7 +123,12 @@ function initMap() {
           $('.selected').removeClass('selected');
           document.getElementById(placeId).className = "selected";
         });
-      }
+
+        //remove highlighting from row when infowindow is closed
+        google.maps.event.addListener(infowindow, 'closeclick', function () {
+          $('.selected').removeClass('selected');
+        });
+      };
     });
   };
 
