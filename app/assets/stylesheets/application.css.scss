@@ -2,6 +2,7 @@
  @import "base/base";
  @import "neat";
  @import "restaurants";
+ @import "toggle";
 
  // Widths
 $mobile-width: em(480);
@@ -71,7 +72,7 @@ $tablet-down: new-breakpoint(max-width $desktop, 8);
 
 section{
   @include outer-container;
-  #map {
+  .map-section {
     @include span-columns(7);
   }
   .expander {
