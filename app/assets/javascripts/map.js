@@ -120,6 +120,7 @@ function initMap() {
           place.formatted_address + '</div>');
           infowindow.open(map, this);
           map.setCenter(marker.getPosition());
+          $('.selected').removeClass('selected');
           document.getElementById(placeId).className = "selected";
         });
       }
