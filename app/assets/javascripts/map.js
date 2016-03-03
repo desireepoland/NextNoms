@@ -110,7 +110,8 @@ function initMap() {
           place.formatted_address + "<br>" +
           place.formatted_phone_number + "<br>" +
           place.website + "<br>" +
-          place.opening_hours.open_now +"<br>"
+          (place.opening_hours.open_now ? 'Open <br>' : 'Closed <br>') +
+          "Rating: " + place.rating +"<br>"
         );
 
         // Add a marker on map for each restaurant
