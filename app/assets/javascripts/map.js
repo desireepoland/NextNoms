@@ -106,7 +106,8 @@ function initMap() {
       if (status === google.maps.places.PlacesServiceStatus.OK) {
         // List each restaurant's name
         self.text(place.name);
-        // Build inner div with Restaurant info
+
+        // Build inner div with restaurant info
         var htmlStr = place.formatted_address + "<br>" +
         place.formatted_phone_number + "<br>" +
         place.website + "<br>" +
@@ -127,6 +128,7 @@ function initMap() {
           htmlStr += '';
         }
 
+        // Add above info into restaurant's expander div
         $("#"+placeId).find('div').prepend(htmlStr + '<br>');
 
         // Add a marker on map for each restaurant
@@ -150,6 +152,7 @@ function initMap() {
         //remove highlighting from row when infowindow is closed
         google.maps.event.addListener(infowindow, 'closeclick', function () {
           $('.selected').removeClass('selected');
+          $("#"+placeId).find('a').addClass('expander-hidden');
         });
       }
     });
