@@ -106,13 +106,28 @@ function initMap() {
       if (status === google.maps.places.PlacesServiceStatus.OK) {
         // List each restaurant's name
         self.text(place.name);
-        $("#"+placeId).find('div').prepend(
-          place.formatted_address + "<br>" +
-          place.formatted_phone_number + "<br>" +
-          place.website + "<br>" +
-          (place.opening_hours.open_now ? 'Open <br>' : 'Closed <br>') +
-          "Rating: " + place.rating +"<br>"
-        );
+        // Build inner div with Restaurant info
+        var htmlStr = place.formatted_address + "<br>" +
+        place.formatted_phone_number + "<br>" +
+        place.website + "<br>" +
+        (place.opening_hours.open_now ? 'Open <br>' : 'Closed <br>') +
+        "Rating: " + place.rating + "<br>";
+
+        if(place.price_level === 0){
+          htmlStr += 'Free';
+        }else if(place.price_level === 1){
+          htmlStr += '$';
+        }else if(place.price_level === 2){
+          htmlStr += '$$';
+        }else if(place.price_level === 3){
+          htmlStr += '$$$';
+        }else if(place.price_level === 1){
+          htmlStr += '$$$$';
+        } else {
+          htmlStr += '';
+        }
+
+        $("#"+placeId).find('div').prepend(htmlStr + '<br>');
 
         // Add a marker on map for each restaurant
         var marker = new google.maps.Marker({
@@ -129,6 +144,7 @@ function initMap() {
           map.setCenter(marker.getPosition());
           $('.selected').removeClass('selected');
           document.getElementById(placeId).className += "selected";
+          $("#"+placeId).find('a').removeClass('expander-hidden');
         });
 
         //remove highlighting from row when infowindow is closed
