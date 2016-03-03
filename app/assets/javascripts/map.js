@@ -105,7 +105,7 @@ function initMap() {
     service.getDetails(request, function(place, status){
       if (status === google.maps.places.PlacesServiceStatus.OK) {
         // List each restaurant's name
-        self.text(place.name);
+        self.html(place.name);
 
         // Add a marker on map for each restaurant
         var marker = new google.maps.Marker({
