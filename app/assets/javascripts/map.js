@@ -41,7 +41,7 @@ function initMap() {
   searchBox.addListener('places_changed', function() {
     var places = searchBox.getPlaces();
 
-    if (places.length == 0) {
+    if (places.length === 0) {
       return;
     }
 
@@ -103,7 +103,7 @@ function initMap() {
     }
     var self = $(element);
     service.getDetails(request, function(place, status){
-      if (status == google.maps.places.PlacesServiceStatus.OK) {
+      if (status === google.maps.places.PlacesServiceStatus.OK) {
         // List each restaurant's name
         self.text(place.name);
 
@@ -128,7 +128,7 @@ function initMap() {
         google.maps.event.addListener(infowindow, 'closeclick', function () {
           $('.selected').removeClass('selected');
         });
-      };
+      }
     });
   };
 
