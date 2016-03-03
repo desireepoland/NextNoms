@@ -146,13 +146,13 @@ function initMap() {
           map.setCenter(marker.getPosition());
           $('.selected').removeClass('selected');
           document.getElementById(placeId).className += "selected";
-          $("#"+placeId).find('a').removeClass('expander-hidden');
+          $("#"+placeId).find('.expander-trigger').removeClass('expander-hidden');
         });
 
         //remove highlighting from row when infowindow is closed
         google.maps.event.addListener(infowindow, 'closeclick', function () {
           $('.selected').removeClass('selected');
-          $("#"+placeId).find('a').addClass('expander-hidden');
+          $("#"+placeId).find('.expander-trigger').addClass('expander-hidden');
         });
       }
     });
