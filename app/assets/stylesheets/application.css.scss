@@ -79,6 +79,11 @@ section{
   }
 }
 
+ul {
+  height: 500px;
+  overflow: scroll;
+}
+
 .selected {
   background-color: yellow;
 }
