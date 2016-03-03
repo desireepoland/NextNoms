@@ -58,7 +58,7 @@ function initMap() {
       //search- Create a marker for each place.
       var marker = new google.maps.Marker({
         map: map,
-        icon: 'http://www.google.com/intl/en_us/mapfiles/ms/micons/yellow-dot.png',
+        icon: 'https://raw.githubusercontent.com/Concept211/Google-Maps-Markers/master/images/marker_orange.png',
         title: place.name,
         position: place.geometry.location
       })
@@ -122,6 +122,7 @@ function initMap() {
           map.setCenter(marker.getPosition());
           $('.selected').removeClass('selected');
           document.getElementById(placeId).className += "selected";
+          $(placeId).append('<tr>Hi</tr>');
         });
 
         //remove highlighting from row when infowindow is closed
@@ -132,9 +133,9 @@ function initMap() {
     });
   };
 
-  var activeColor = 'http://www.google.com/intl/en_us/mapfiles/ms/micons/red-dot.png';
-  var triedColor = 'http://www.google.com/intl/en_us/mapfiles/ms/micons/purple-dot.png';
-  // use el instead of this inside code
+  var activeColor = 'https://raw.githubusercontent.com/Concept211/Google-Maps-Markers/master/images/marker_red.png';
+  var triedColor = 'https://raw.githubusercontent.com/Concept211/Google-Maps-Markers/master/images/marker_blue.png';
+
   $(".restaurant").each($.proxy(displayRestaurant, null, activeColor));
   $(".tried_restaurant").each($.proxy(displayRestaurant, null, triedColor));
 }
