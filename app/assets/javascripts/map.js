@@ -121,7 +121,7 @@ function initMap() {
           infowindow.open(map, this);
           map.setCenter(marker.getPosition());
           $('.selected').removeClass('selected');
-          document.getElementById(placeId).className = "selected";
+          document.getElementById(placeId).className += "selected";
         });
 
         //remove highlighting from row when infowindow is closed
