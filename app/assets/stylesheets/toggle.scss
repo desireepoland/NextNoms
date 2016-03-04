@@ -1,5 +1,10 @@
+.btn-group-wrap {
+    text-align: center;
+}
+
 .button-group {
-  margin-top: 1em;
+  margin: 1em auto 0;
+  text-align: center;
   $base-border-color: gainsboro !default;
   $base-border-radius: 3px !default;
   $base-line-height: 1.5em !default;
@@ -8,7 +13,7 @@
   $base-background-color: white !default;
   $action-color: #477DCA !default;
   $dark-gray: #333 !default;
-  $large-screen: em(860) !default;
+  $large-screen: em(720) !default;
   $base-font-color: $dark-gray !default;
   $button-group-background: $base-background-color;
   $button-group-color: lighten($base-font-color, 30%);
