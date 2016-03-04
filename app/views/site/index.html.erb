@@ -2,24 +2,21 @@
   <div class="map-section">
     <input id="pac-input" class="controls" type="text" placeholder="Find a Restaurant">
     <div id="map"></div>
-    <div class="btn-group-wrap">
-      <div class="button-group">
-        <label>
-          <input type="radio" name="button-group" <%= 'checked' if cookies[:filter] == 'all' %> >
-          <span class="button-group-item" data-filter="all">All</span>
-        </label>
-        <label>
-          <input type="radio" name="button-group" <%= 'checked' if cookies[:filter] == 'active' %> >
-          <span class="button-group-item" data-filter="active">Active</span>
-        </label>
-        <label>
-          <input type="radio" name="button-group" <%= 'checked' if cookies[:filter] == 'tried' %> >
-          <span class="button-group-item" data-filter="tried">Tried</span>
-        </label>
-      </div>
+    <div class="button-group">
+      <label>
+        <input type="radio" name="button-group" <%= 'checked' if cookies[:filter] == 'all' %> >
+        <span class="button-group-item" data-filter="all">All</span>
+      </label>
+      <label>
+        <input type="radio" name="button-group" <%= 'checked' if cookies[:filter] == 'active' %> >
+        <span class="button-group-item" data-filter="active">Active</span>
+      </label>
+      <label>
+        <input type="radio" name="button-group" <%= 'checked' if cookies[:filter] == 'tried' %> >
+        <span class="button-group-item" data-filter="tried">Tried</span>
+      </label>
     </div>
   </div>
-
   <% if !@restaurants.nil? %>
   <div class="expander">
     <ul>

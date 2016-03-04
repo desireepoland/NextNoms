@@ -1,7 +1,3 @@
-.btn-group-wrap {
-    text-align: center;
-}
-
 .button-group {
   margin: 1em auto 0;
   text-align: center;
@@ -13,7 +9,7 @@
   $base-background-color: white !default;
   $action-color: #477DCA !default;
   $dark-gray: #333 !default;
-  $large-screen: em(720) !default;
+  $large-screen: em(200) !default;
   $base-font-color: $dark-gray !default;
   $button-group-background: $base-background-color;
   $button-group-color: lighten($base-font-color, 30%);
@@ -30,9 +26,9 @@
   label {
     margin-bottom: 0;
 
-    @include media($large-screen) {
+    // @include media($large-screen) {
       float: left;
-    }
+    // }
 
     .button-group-item {
       background: $button-group-background;
@@ -48,13 +44,13 @@
       padding: 0.75em 1em;
       width: 100%;
 
-      @include media($large-screen) {
+      // @include media($large-screen) {
         border-bottom: $button-group-border;
         border-left: 0;
         border-right: $button-group-inner-border;
         border-top: $button-group-border;
         width: auto;
-      }
+      // }
 
       &:focus,
       &:hover {
@@ -67,12 +63,12 @@
       border-top-right-radius: $base-border-radius;
       border-top: $button-group-border;
 
-      @include media($large-screen) {
+      // @include media($large-screen) {
         border-bottom-left-radius: $base-border-radius;
         border-left: $button-group-border;
         border-top-left-radius: $base-border-radius;
         border-top-right-radius: 0;
-      }
+      // }
     }
 
     &:last-child .button-group-item {
@@ -80,12 +76,12 @@
       border-bottom-right-radius: $base-border-radius;
       border-bottom: $button-group-border;
 
-      @include media($large-screen) {
+      // @include media($large-screen) {
         border-bottom-left-radius: 0;
         border-bottom-right-radius: $base-border-radius;
         border-right: $button-group-border;
         border-top-right-radius: $base-border-radius;
-      }
+      // }
     }
 
     input:checked + .button-group-item {

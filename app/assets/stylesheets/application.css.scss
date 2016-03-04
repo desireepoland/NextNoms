@@ -76,22 +76,29 @@ $tablet-down: new-breakpoint(max-width $desktop, 8);
 
 section{
   @include outer-container;
+  .map-section{
+    @include span-columns(12);
+  }
+  .expander {
+    @include span-columns(12);
+    margin-top: 2em;
+  }
   @include media($small-tablet-width){
     .map-section {
       @include span-columns(7);
       #map {
-        height: 500px;
+        height: 450px;
       }
     }
     .expander {
       @include span-columns(5);
+      margin-top: 0;
+    }
+    ul {
+      height: 450px;
+      overflow: scroll;
     }
   }
-}
-
-ul {
-  height: 500px;
-  overflow: scroll;
 }
 
 .selected {
