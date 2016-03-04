@@ -3,6 +3,7 @@
  @import "neat";
  @import "restaurants";
  @import "toggle";
+ @import "navbar";
 
  // Widths
 $mobile-width: em(480);
@@ -61,6 +62,7 @@ $tablet-down: new-breakpoint(max-width $desktop, 8);
   font-size: 13px;
   font-weight: 300;
 }
+
 #target {
   width: 345px;
 }

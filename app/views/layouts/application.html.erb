@@ -9,6 +9,7 @@
   </head>
   <body>
     <% if logged_in? %>
+      <%= render 'layouts/navbar' %>
       Hi <%= current_user.name %><br>
       <%= yield %>
       <br>
