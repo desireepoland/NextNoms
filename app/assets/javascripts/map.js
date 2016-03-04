@@ -149,7 +149,7 @@ function initMap() {
           $("#"+placeId).find('.expander-trigger').removeClass('expander-hidden');
         });
 
-        //remove highlighting from row when infowindow is closed
+        //remove highlighting and close expander from list item when infowindow closed
         google.maps.event.addListener(infowindow, 'closeclick', function () {
           $('.selected').removeClass('selected');
           $("#"+placeId).find('.expander-trigger').addClass('expander-hidden');
