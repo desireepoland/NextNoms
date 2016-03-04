@@ -22,4 +22,9 @@ $(document).ready(function() {
   $('.expander-trigger').click(function(){
     $(this).toggleClass("expander-hidden");
   });
+
+  $('.button-group-item').on('click', function(){
+    document.cookie = ('filter='+ $(this).data('filter'));
+    window.location.reload();
+  });
 });

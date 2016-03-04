@@ -2,6 +2,16 @@ class User < ActiveRecord::Base
   has_many :restaurants, :through => :users_restaurants
   has_many :users_restaurants
 
+  def restaurants_for(filter = 'all')
+    if filter == 'tried'
+      restaurants.where(users_restaurants: {tried: true}).ordered
+    elsif filter == 'active'
+      restaurants.where(users_restaurants: {tried: false}).ordered
+    else
+      restaurants.ordered
+    end
+  end
+
   def self.find_or_create_from_omniauth(auth_hash)
     user = self.find_by(uid: auth_hash["uid"])
     if !user.nil?
