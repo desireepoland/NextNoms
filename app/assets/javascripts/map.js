@@ -108,22 +108,22 @@ function initMap() {
         self.text(place.name);
 
         // Build inner div with restaurant info
-        var htmlStr = place.formatted_address + "<br>" +
-        place.formatted_phone_number + "<br>" +
-        place.website + "<br>" +
-        (place.opening_hours.open_now ? 'Open <br>' : 'Closed <br>') +
-        "Rating: " + place.rating + "<br>";
+        var htmlStr = '<i class="fa fa-map-marker"></i>&emsp;' + place.formatted_address + '<br>' +
+        '<i class="fa fa-globe"></i>&emsp;' + '<a href="' + place.website + '">'+ place.website +'</a><br>' +
+        '<i class="fa fa-phone"></i>&emsp;' + place.formatted_phone_number + '<br>' +
+        '<i class="fa fa-clock-o"></i>&emsp;' + (place.opening_hours.open_now ? 'Open Now <br>' : 'Currently Closed <br>') +
+        '<i class="fa fa-star"></i>&emsp;Average Rating: ' + place.rating + '<br>';
 
         if(place.price_level === 0){
-          htmlStr += 'Free';
+          htmlStr += '<i class="fa fa-money"></i>&emsp;Price Range: Free<br>';
         }else if(place.price_level === 1){
-          htmlStr += '$';
+          htmlStr += '<i class="fa fa-money"></i>&emsp;Price Range: $<br>';
         }else if(place.price_level === 2){
-          htmlStr += '$$';
+          htmlStr += '<i class="fa fa-money"></i>&emsp;Price Range: $$<br>';
         }else if(place.price_level === 3){
-          htmlStr += '$$$';
+          htmlStr += '<i class="fa fa-money"></i>&emsp;Price Range: $$$<br>';
         }else if(place.price_level === 1){
-          htmlStr += '$$$$';
+          htmlStr += '<i class="fa fa-money"></i>&emsp;Price Range: $$$$<br>';
         } else {
           htmlStr += '';
         }
