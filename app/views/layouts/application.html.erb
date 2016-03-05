@@ -11,12 +11,16 @@
   <body>
     <% if logged_in? %>
       <%= render 'layouts/navbar' %>
+      <div class="main">
       Hi <%= current_user.name %><br>
       <%= yield %>
       <br>
       <%= link_to "Log Out", logout_path, method: :delete %>
+      </div>
     <% else %>
+      <div class="main">
       <%= link_to "Log In", "/auth/facebook" %>
+      </div>
     <% end %>
   </body>
 </html>

@@ -4,6 +4,7 @@
  @import "restaurants";
  @import "toggle";
  @import "navbar";
+ @import "splash";
 
  // Widths
 $mobile-width: em(480);
@@ -20,6 +21,7 @@ $desktop: new-breakpoint(min-width $desktop-width, 16);
 
 $small-tablet-down: new-breakpoint(max-width $large-tablet-width, 8);
 $tablet-down: new-breakpoint(max-width $desktop, 8);
+
 
 .controls {
   margin-top: 10px;
@@ -65,6 +67,16 @@ $tablet-down: new-breakpoint(max-width $desktop, 8);
 
 #target {
   width: 345px;
+}
+
+//custom
+
+body {
+  margin: 0;
+}
+
+.main {
+  margin: 8px;
 }
 
 #map {
