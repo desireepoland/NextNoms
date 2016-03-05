@@ -1,0 +1,32 @@
+#splash-image {
+  min-height: 100%;
+  min-width: 100%;
+  position: absolute;
+  background-image: linear-gradient(
+      rgba(0, 0, 0, 0.4),
+      rgba(0, 0, 0, 0.4)
+    ),
+    url(foodontable.jpeg);
+  background-attachment: fixed;
+  background-size: cover;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+}
+
+#login-link {
+  width: 100%;
+  text-align: center;
+  a {
+    color: white;
+    font-size: 40px;
+    text-align: center;
+    padding: 20px;
+    background-color: rgba(0,0,0,0.7);
+    border-radius: 15px;
+    font-family: 'Lato', sans-serif;
+  }
+  a:hover {
+    background-color: rgba(0,0,0,0.9);
+  }
+}
