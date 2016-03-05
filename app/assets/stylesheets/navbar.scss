@@ -74,7 +74,7 @@ header.navigation {
     z-index: 9999999;
 
     @include media ($horizontal-bar-mode) {
-      float: left;
+      float: right;
     }
   }
 
@@ -102,6 +102,7 @@ header.navigation {
 
   ul li.nav-link {
     background: $navigation-background;
+    color: $navigation-color;
     display: block;
     line-height: $navigation-height;
     overflow: hidden;
@@ -205,6 +206,7 @@ header.navigation {
   ul.submenu {
     display: none;
     padding-left: 0;
+    float: right;
 
     @include media($horizontal-bar-mode) {
       left: -$navigation-submenu-padding;
@@ -261,6 +263,7 @@ header.navigation {
     clear: both;
     display: block;
     height: $navigation-height;
+    float: right;
 
     @include media($horizontal-bar-mode) {
       background: transparent;

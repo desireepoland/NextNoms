@@ -12,10 +12,8 @@
     <% if logged_in? %>
       <%= render 'layouts/navbar' %>
       <div class="main">
-      Hi <%= current_user.name %><br>
+        <br>
       <%= yield %>
-      <br>
-      <%= link_to "Log Out", logout_path, method: :delete %>
       </div>
     <% else %>
       <div class="main">
