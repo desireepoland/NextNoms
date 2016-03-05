@@ -12,13 +12,11 @@
     <% if logged_in? %>
       <%= render 'layouts/navbar' %>
       <div class="main">
-        <br>
+      <br>
       <%= yield %>
       </div>
     <% else %>
-      <div class="main">
       <%= link_to "Log In", "/auth/facebook" %>
-      </div>
     <% end %>
   </body>
 </html>
