@@ -4,7 +4,7 @@
   position: absolute;
   background-image: linear-gradient(
       rgba(0, 0, 0, 0.4),
-      rgba(0, 0, 0, 0.4)
+      rgba(0, 0, 0, 0.5)
     ),
     url(foodontable.jpeg);
   background-attachment: fixed;
@@ -19,14 +19,14 @@
   text-align: center;
   a {
     color: white;
+    text-shadow: 2px 4px 3px rgba(0,0,0,0.3);
     font-size: 40px;
     text-align: center;
     padding: 20px;
-    background-color: rgba(0,0,0,0.7);
     border-radius: 15px;
     font-family: 'Lato', sans-serif;
   }
   a:hover {
-    background-color: rgba(0,0,0,0.9);
+    background-color: rgba(0,0,0,0.6);
   }
 }
