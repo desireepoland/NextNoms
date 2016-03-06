@@ -23,3 +23,10 @@ coverage/*
 .elasticbeanstalk/*
 !.elasticbeanstalk/*.cfg.yml
 !.elasticbeanstalk/*.global.yml
+
+
+.Python
+bin/*
+lib/python2.7/
+pip-selfcheck.json
+include/*
