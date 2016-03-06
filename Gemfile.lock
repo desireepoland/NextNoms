@@ -127,7 +127,6 @@ GEM
     omniauth-oauth2 (1.4.0)
       oauth2 (~> 1.0)
       omniauth (~> 1.2)
-    pg (0.18.4)
     pry (0.10.3)
       coderay (~> 1.1.0)
       method_source (~> 0.8.1)
@@ -250,7 +249,6 @@ DEPENDENCIES
   neat
   omniauth
   omniauth-facebook
-  pg
   pry-rails
   rails (= 4.2.5.1)
   react-rails (~> 1.6.0)
