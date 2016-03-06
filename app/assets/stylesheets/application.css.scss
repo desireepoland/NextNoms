@@ -101,20 +101,27 @@ section{
     @include span-columns(12);
     margin-top: 2em;
   }
+  .button-group-item {
+    margin-top: 1em;
+  }
   @include media($small-tablet-width){
     .map-section {
       @include span-columns(7);
       #map {
-        height: 450px;
+        height: 473px;
       }
     }
-    .expander {
+    .r-info {
       @include span-columns(5);
       margin-top: 0;
+      // height: 450px;
     }
     ul {
-      height: 450px;
+      height: 400px;
       overflow: scroll;
+    }
+    .button-group-item {
+      margin-top: 0;
     }
   }
 }
