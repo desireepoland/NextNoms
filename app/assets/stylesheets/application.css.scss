@@ -88,6 +88,10 @@ body {
   width: 100%;
 }
 
+a {
+  color: #b56969;
+}
+
 section{
   @include outer-container;
   .map-section{
