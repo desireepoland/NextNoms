@@ -57,7 +57,7 @@ function initMap() {
 
       //create search marker
       var icon = {
-          url: "<%= image_url('yellowmarker.png') %>", // url
+          url: "https://dl.dropboxusercontent.com/u/63083085/NextNoms/yellowmarker.png", // url
           scaledSize: new google.maps.Size(32, 43), // scaled size
           origin: new google.maps.Point(0, 0), // origin
           anchor: new google.maps.Point(0, 0) // anchor
@@ -173,8 +173,8 @@ function initMap() {
     });
   };
 
-  var activeColor = "<%= image_url('redmarker.png') %>";
-  var triedColor = "<%= image_url('purpmarker.png') %>";
+  var activeColor = "https://dl.dropboxusercontent.com/u/63083085/NextNoms/redmarker.png";
+  var triedColor = "https://dl.dropboxusercontent.com/u/63083085/NextNoms/purpmarker.png";
 
   $(".restaurant").each($.proxy(displayRestaurant, null, activeColor));
   $(".tried_restaurant").each($.proxy(displayRestaurant, null, triedColor));
