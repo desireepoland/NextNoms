@@ -119,7 +119,7 @@ function initMap() {
         var htmlStr = '<i class="fa fa-map-marker"></i>&emsp;' + place.formatted_address + '<br>' +
         '<i class="fa fa-globe"></i>&emsp;' + '<a href="' + place.website + '">'+ place.website +'</a><br>' +
         '<i class="fa fa-phone"></i>&emsp;' + place.formatted_phone_number + '<br>' +
-        '<i class="fa fa-clock-o"></i>&emsp;' + (place.opening_hours.open_now ? 'Open Now <br>' : 'Currently Closed <br>') +
+        '<i class="fa fa-clock-o"></i>&emsp;' + (place.opening_hours.open_now ? '<span class="open">Open Now</span><br>' : '<span class="closed">Currently Closed</span><br>') +
         '<i class="fa fa-star"></i>&emsp;Average Rating: ' + place.rating + '<br>';
 
         if(place.price_level === 0){
