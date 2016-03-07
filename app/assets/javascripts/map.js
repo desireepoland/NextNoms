@@ -55,10 +55,18 @@ function initMap() {
     var bounds = new google.maps.LatLngBounds();
     places.forEach(function(place) {
 
+      //create search marker
+      var icon = {
+          url: "/assets/yellowmarker.png", // url
+          scaledSize: new google.maps.Size(32, 43), // scaled size
+          origin: new google.maps.Point(0, 0), // origin
+          anchor: new google.maps.Point(0, 0) // anchor
+      };
+
       //search- Create a marker for each place.
       var marker = new google.maps.Marker({
         map: map,
-        icon: 'https://raw.githubusercontent.com/Concept211/Google-Maps-Markers/master/images/marker_orange.png',
+        icon: icon,
         title: place.name,
         position: place.geometry.location
       })
@@ -131,11 +139,18 @@ function initMap() {
         // Add above info into restaurant's expander div
         $("#"+placeId).find('div').prepend(htmlStr + '<br>');
 
+        var icon = {
+            url: iconImage, // url
+            scaledSize: new google.maps.Size(32, 43), // scaled size
+            origin: new google.maps.Point(0, 0), // origin
+            anchor: new google.maps.Point(0, 0) // anchor
+        };
+
         // Add a marker on map for each restaurant
         var marker = new google.maps.Marker({
           map: map,
           position: place.geometry.location,
-          icon: iconImage
+          icon: icon
         });
 
         //on click of marker display place info
@@ -158,8 +173,8 @@ function initMap() {
     });
   };
 
-  var activeColor = 'https://raw.githubusercontent.com/Concept211/Google-Maps-Markers/master/images/marker_red.png';
-  var triedColor = 'https://raw.githubusercontent.com/Concept211/Google-Maps-Markers/master/images/marker_blue.png';
+  var activeColor = "/assets/redmarker.png";
+  var triedColor = "/assets/purpmarker.png";
 
   $(".restaurant").each($.proxy(displayRestaurant, null, activeColor));
   $(".tried_restaurant").each($.proxy(displayRestaurant, null, triedColor));
