@@ -19,7 +19,7 @@
         <span class="button-group-item" data-filter="tried">Tried</span>
       </label>
     </div>
-    <% if @restaurants.length > 0 %>
+    <% if !@restaurants.nil? && @restaurants.length > 0 %>
       <div class="expander">
         <ul>
           <% @restaurants.each do |r| %>
