@@ -1,6 +1,7 @@
 class User < ActiveRecord::Base
   has_many :restaurants, :through => :users_restaurants
   has_many :users_restaurants
+  validates :name, presence: true
 
   def restaurants_for(filter = 'all')
     if filter == 'tried'
