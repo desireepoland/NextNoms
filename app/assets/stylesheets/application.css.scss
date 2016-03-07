@@ -98,7 +98,7 @@ section{
   .map-section{
     @include span-columns(12);
   }
-  .expander {
+  .expander, .no-expander {
     @include span-columns(12);
     margin-top: 2em;
   }
@@ -115,7 +115,6 @@ section{
     .r-info {
       @include span-columns(5);
       margin-top: 0;
-      // height: 450px;
     }
     ul {
       height: 400px;
@@ -129,4 +128,8 @@ section{
 
 .selected {
   background-color: #e8edf3;
+}
+
+.no-expander {
+  color: #22264b;
 }
