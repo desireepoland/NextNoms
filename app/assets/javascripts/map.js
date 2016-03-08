@@ -60,7 +60,7 @@ function initMap() {
           url: "https://dl.dropboxusercontent.com/u/63083085/NextNoms/yellowmarker.png", // url
           scaledSize: new google.maps.Size(32, 43), // scaled size
           origin: new google.maps.Point(0, 0), // origin
-          anchor: new google.maps.Point(0, 0) // anchor
+          anchor: new google.maps.Point(16, 43) // anchor
       };
 
       //search- Create a marker for each place.
@@ -143,7 +143,7 @@ function initMap() {
             url: iconImage, // url
             scaledSize: new google.maps.Size(32, 43), // scaled size
             origin: new google.maps.Point(0, 0), // origin
-            anchor: new google.maps.Point(0, 0) // anchor
+            anchor: new google.maps.Point(16, 43) // anchor
         };
 
         // Add a marker on map for each restaurant
