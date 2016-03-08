@@ -116,10 +116,14 @@ function initMap() {
         self.text(place.name);
 
         // Build inner div with restaurant info
-        var htmlStr = '<i class="fa fa-map-marker"></i>&emsp;' + place.formatted_address + '<br>' +
-        '<i class="fa fa-globe"></i>&emsp;' + '<a href="' + place.website + '">'+ place.website +'</a><br>' +
-        '<i class="fa fa-phone"></i>&emsp;' + place.formatted_phone_number + '<br>' +
-        '<i class="fa fa-clock-o"></i>&emsp;' + (place.opening_hours.open_now ? '<span class="open">Open Now</span><br>' : '<span class="closed">Currently Closed</span><br>') +
+        var htmlStr = '<i class="fa fa-map-marker"></i>&emsp;' + place.formatted_address + '<br>'
+        if(place.website !== undefined){
+          htmlStr += '<i class="fa fa-globe"></i>&emsp;' + '<a href="' + place.website + '">'+ place.website +'</a><br>';
+        }
+        if(place.formatted_phone_number !== undefined){
+          htmlStr += '<i class="fa fa-phone"></i>&emsp;' + place.formatted_phone_number + '<br>';
+        }
+        htmlStr += '<i class="fa fa-clock-o"></i>&emsp;' + (place.opening_hours.open_now ? '<span class="open">Open Now</span><br>' : '<span class="closed">Currently Closed</span><br>') +
         '<i class="fa fa-star"></i>&emsp;Average Rating: ' + place.rating + '<br>';
 
         if(place.price_level === 0){
