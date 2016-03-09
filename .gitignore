@@ -30,3 +30,6 @@ bin/*
 lib/python2.7/
 pip-selfcheck.json
 include/*
+
+
+.DS_Store
