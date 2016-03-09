@@ -118,7 +118,7 @@ function initMap() {
         // Build inner div with restaurant info
         var htmlStr = '<i class="fa fa-map-marker"></i>&emsp;' + place.formatted_address + '<br>'
         if(place.website !== undefined){
-          htmlStr += '<i class="fa fa-globe"></i>&emsp;' + '<a href="' + place.website + '">'+ place.website +'</a><br>';
+          htmlStr += '<i class="fa fa-globe"></i>&emsp;' + '<a href="' + place.website + '" target="_blank">'+ place.website +'</a><br>';
         }
         if(place.formatted_phone_number !== undefined){
           htmlStr += '<i class="fa fa-phone"></i>&emsp;' + place.formatted_phone_number + '<br>';
