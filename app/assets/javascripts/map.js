@@ -123,8 +123,8 @@ function initMap() {
         if(place.formatted_phone_number !== undefined){
           htmlStr += '<i class="fa fa-phone"></i>&emsp;' + place.formatted_phone_number + '<br>';
         }
-        htmlStr += '<i class="fa fa-clock-o"></i>&emsp;' + (place.opening_hours.open_now ? '<span class="open">Open Now</span><br>' : '<span class="closed">Currently Closed</span><br>') +
-        '<i class="fa fa-star"></i>&emsp;Average Rating: ' + place.rating + '<br>';
+
+        htmlStr += '<i class="fa fa-star"></i>&emsp;Average Rating: ' + place.rating + '<br>';
 
         if(place.price_level === 0){
           htmlStr += '<i class="fa fa-money"></i>&emsp;Price Range: Free<br>';
@@ -138,6 +138,12 @@ function initMap() {
           htmlStr += '<i class="fa fa-money"></i>&emsp;Price Range: $$$$<br>';
         } else {
           htmlStr += '';
+        }
+
+        htmlStr += '<i class="fa fa-clock-o"></i>&emsp;' + (place.opening_hours.open_now ? '<span class="open">Open Now</span><br>' : '<span class="closed">Currently Closed</span><br>');
+
+        for (var i=0; i < place.opening_hours.weekday_text.length; i++) {
+          htmlStr += '<span class="day">' + place.opening_hours.weekday_text[i] + '</span><br>';
         }
 
         // Add above info into restaurant's expander div
