@@ -28,17 +28,18 @@ RSpec.describe RestaurantsController, type: :controller do
 
 
   describe "PATCH #update" do
-    # it "redirects to the root path" do
-    #   patch :update, restaurant_id: restaurant.id
-    #   expect(response.status).to eq 302
-    #   expect(subject).to redirect_to root_path
-    # end
+    it "redirects to the root path" do
+      users_restaurant
+      patch :update, id: users_restaurant.id
+      expect(response.status).to eq 302
+      expect(subject).to redirect_to root_path
+    end
   end
 
   describe "DELETE #destroy" do
     it "redirects to the root path" do
       users_restaurant
-      delete :destroy, id: 1
+      delete :destroy, id: users_restaurant.id
       expect(response.status).to eq 302
       expect(subject).to redirect_to root_path
     end
