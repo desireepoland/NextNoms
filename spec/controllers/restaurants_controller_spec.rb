@@ -3,6 +3,7 @@ require 'rails_helper'
 RSpec.describe RestaurantsController, type: :controller do
   let (:user) { create(:user) }
   let (:restaurant) { create(:restaurant) }
+  let (:users_restaurant) { create(:users_restaurant) }
 
   let(:create_params) do
     { user_id: 1,
@@ -27,13 +28,20 @@ RSpec.describe RestaurantsController, type: :controller do
 
 
   describe "PATCH #update" do
-  end
-
-  describe "DESTROY #destroy" do
     # it "redirects to the root path" do
-    #   delete :destroy, ....
+    #   patch :update, restaurant_id: restaurant.id
+    #   expect(response.status).to eq 302
     #   expect(subject).to redirect_to root_path
     # end
+  end
+
+  describe "DELETE #destroy" do
+    it "redirects to the root path" do
+      users_restaurant
+      delete :destroy, id: 1
+      expect(response.status).to eq 302
+      expect(subject).to redirect_to root_path
+    end
   end
 
 end
