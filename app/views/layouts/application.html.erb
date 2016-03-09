@@ -15,8 +15,8 @@
     <% if logged_in? %>
       <%= render 'layouts/navbar' %>
       <div class="main">
-      <br>
       <%= render partial: "shared/flash_messages", flash: flash %>
+      <br>
       <%= yield %>
       </div>
     <% else %>
