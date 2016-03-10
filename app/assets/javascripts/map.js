@@ -184,6 +184,8 @@ function initMap() {
             infowindow.setContent('<div><strong>' + place.name + '</strong><br>' +
             place.formatted_address + '</div>');
             infowindow.open(map, marker);
+          } else {
+            infowindow.close(map, marker);
           }
         });
 
