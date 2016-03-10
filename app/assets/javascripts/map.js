@@ -54,46 +54,47 @@ function initMap() {
     // search- For each place, get the icon, name and location.
     var bounds = new google.maps.LatLngBounds();
     places.forEach(function(place) {
+      if(!place.permanently_closed){
+        //create search marker
+        var icon = {
+            url: "https://dl.dropboxusercontent.com/u/63083085/NextNoms/yellowmarker.png", // url
+            scaledSize: new google.maps.Size(32, 43), // scaled size
+            origin: new google.maps.Point(0, 0), // origin
+            anchor: new google.maps.Point(16, 43) // anchor
+        };
 
-      //create search marker
-      var icon = {
-          url: "https://dl.dropboxusercontent.com/u/63083085/NextNoms/yellowmarker.png", // url
-          scaledSize: new google.maps.Size(32, 43), // scaled size
-          origin: new google.maps.Point(0, 0), // origin
-          anchor: new google.maps.Point(16, 43) // anchor
-      };
+        //search- Create a marker for each place.
+        var marker = new google.maps.Marker({
+          map: map,
+          icon: icon,
+          title: place.name,
+          position: place.geometry.location
+        })
+        markers.push(marker);
 
-      //search- Create a marker for each place.
-      var marker = new google.maps.Marker({
-        map: map,
-        icon: icon,
-        title: place.name,
-        position: place.geometry.location
-      })
-      markers.push(marker);
-
-      //search- on click of marker display place info
-      google.maps.event.addListener(marker, 'click', function () {
-        infowindow.setContent('<div><strong>' + place.name + '</strong><br>' +
-        place.formatted_address + '<br> <a href="#" class="add-nom">Add To My NextNoms</a></div>');
-        infowindow.open(map, this);
-        // Add restaurant to current_user's restaurants on click of add-nom link
-        $(".add-nom").on("click", function(){
-          $.post("/restaurants", {place_id: place.place_id})
-          .done(function(data) {
-            document.location.reload(true);
-          })
-          .fail(function(){
-            console.log("POST FAIL");
+        //search- on click of marker display place info
+        google.maps.event.addListener(marker, 'click', function () {
+          infowindow.setContent('<div><strong>' + place.name + '</strong><br>' +
+          place.formatted_address + '<br> <a href="#" class="add-nom">Add To My NextNoms</a></div>');
+          infowindow.open(map, this);
+          // Add restaurant to current_user's restaurants on click of add-nom link
+          $(".add-nom").on("click", function(){
+            $.post("/restaurants", {place_id: place.place_id})
+            .done(function(data) {
+              document.location.reload(true);
+            })
+            .fail(function(){
+              console.log("POST FAIL");
+            });
           });
         });
-      });
 
-      if (place.geometry.viewport) {
-        // Only geocodes have viewport.
-        bounds.union(place.geometry.viewport);
-      } else {
-        bounds.extend(place.geometry.location);
+        if (place.geometry.viewport) {
+          // Only geocodes have viewport.
+          bounds.union(place.geometry.viewport);
+        } else {
+          bounds.extend(place.geometry.location);
+        }
       }
     });
     map.fitBounds(bounds);
