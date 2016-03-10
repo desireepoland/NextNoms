@@ -176,10 +176,15 @@ function initMap() {
 
         // Event listener for clicking on the list and centering the map
         $("#"+placeId).on('click', function(){
-          map.setCenter(place.geometry.location);
-          infowindow.setContent('<div><strong>' + place.name + '</strong><br>' +
-          place.formatted_address + '</div>');
-          infowindow.open(map, marker);
+          $('.selected').removeClass('selected');
+          if(!$("#"+placeId).find('.expander-trigger').hasClass('expander-hidden')){
+            $('.expander-trigger').addClass('expander-hidden');
+            $("#"+placeId).find('.expander-trigger').removeClass('expander-hidden');
+            map.setCenter(place.geometry.location);
+            infowindow.setContent('<div><strong>' + place.name + '</strong><br>' +
+            place.formatted_address + '</div>');
+            infowindow.open(map, marker);
+          }
         });
 
         //on click of marker display place info
