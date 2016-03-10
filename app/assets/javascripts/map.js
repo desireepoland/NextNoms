@@ -75,7 +75,7 @@ function initMap() {
         //search- on click of marker display place info
         google.maps.event.addListener(marker, 'click', function () {
           infowindow.setContent('<div><strong>' + place.name + '</strong><br>' +
-          place.formatted_address + '<br> <a href="#" class="add-nom">Add To My NextNoms</a></div>');
+          place.formatted_address + '<br> <a href="#" class="add-nom"><i class="fa fa-plus"></i> Add To My NextNoms</a></div>');
           infowindow.open(map, this);
           // Add restaurant to current_user's restaurants on click of add-nom link
           $(".add-nom").on("click", function(){
