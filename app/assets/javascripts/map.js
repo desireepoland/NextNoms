@@ -116,34 +116,44 @@ function initMap() {
         self.text(place.name);
 
         // Build inner div with restaurant info
-        var htmlStr = '<i class="fa fa-map-marker"></i>&emsp;' + place.formatted_address + '<br>'
-        if(place.website !== undefined){
-          htmlStr += '<i class="fa fa-globe"></i>&emsp;<a href="' + place.website + '" target="_blank">'+ place.website +'</a><br>';
-        }
-        if(place.formatted_phone_number !== undefined){
-          htmlStr += '<i class="fa fa-phone"></i>&emsp;' + place.formatted_phone_number + '<br>';
-        }
+        var htmlStr = '';
 
-        htmlStr += '<i class="fa fa-star"></i>&emsp;Average Rating: ' + place.rating + '<br>';
-
-        if(place.price_level === 0){
-          htmlStr += '<i class="fa fa-money"></i>&emsp;Price Range: Free<br>';
-        }else if(place.price_level === 1){
-          htmlStr += '<i class="fa fa-money"></i>&emsp;Price Range: $<br>';
-        }else if(place.price_level === 2){
-          htmlStr += '<i class="fa fa-money"></i>&emsp;Price Range: $$<br>';
-        }else if(place.price_level === 3){
-          htmlStr += '<i class="fa fa-money"></i>&emsp;Price Range: $$$<br>';
-        }else if(place.price_level === 1){
-          htmlStr += '<i class="fa fa-money"></i>&emsp;Price Range: $$$$<br>';
+        if(place.permanently_closed){
+          htmlStr += 'This location has been permanently closed.';
         } else {
-          htmlStr += '';
-        }
+          htmlStr += '<i class="fa fa-map-marker"></i>&emsp;' + place.formatted_address + '<br>';
 
-        htmlStr += '<i class="fa fa-clock-o"></i>&emsp;' + (place.opening_hours.open_now ? '<span class="open">Open Now</span><br>' : '<span class="closed">Currently Closed</span><br>');
+          if(place.website !== undefined){
+            htmlStr += '<i class="fa fa-globe"></i>&emsp;<a href="' + place.website + '" target="_blank">'+ place.website +'</a><br>';
+          }
 
-        for (var i=0; i < place.opening_hours.weekday_text.length; i++) {
-          htmlStr += '<span class="day">' + place.opening_hours.weekday_text[i] + '</span><br>';
+          if(place.formatted_phone_number !== undefined){
+            htmlStr += '<i class="fa fa-phone"></i>&emsp;' + place.formatted_phone_number + '<br>';
+          }
+
+          htmlStr += '<i class="fa fa-star"></i>&emsp;Average Rating: ' + place.rating + '<br>';
+
+          if(place.price_level === 0){
+            htmlStr += '<i class="fa fa-money"></i>&emsp;Price Range: Free<br>';
+          }else if(place.price_level === 1){
+            htmlStr += '<i class="fa fa-money"></i>&emsp;Price Range: $<br>';
+          }else if(place.price_level === 2){
+            htmlStr += '<i class="fa fa-money"></i>&emsp;Price Range: $$<br>';
+          }else if(place.price_level === 3){
+            htmlStr += '<i class="fa fa-money"></i>&emsp;Price Range: $$$<br>';
+          }else if(place.price_level === 1){
+            htmlStr += '<i class="fa fa-money"></i>&emsp;Price Range: $$$$<br>';
+          } else {
+            htmlStr += '';
+          }
+
+          if(place.opening_hours !== undefined){
+            htmlStr += '<i class="fa fa-clock-o"></i>&emsp;' + (place.opening_hours.open_now ? '<span class="open">Open Now</span><br>' : '<span class="closed">Currently Closed</span><br>');
+
+            for (var i=0; i < place.opening_hours.weekday_text.length; i++) {
+              htmlStr += '<span class="day">' + place.opening_hours.weekday_text[i] + '</span><br>';
+            }
+          }
         }
 
         // Add above info into restaurant's expander div
