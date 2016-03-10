@@ -19,10 +19,12 @@
 
 //= require_tree .
 $(document).ready(function() {
+  // list expanders
   $('.expander-trigger').click(function(){
     $(this).toggleClass("expander-hidden");
   });
 
+  // filter buttons
   $('.button-group-item').on('click', function(){
     document.cookie = ('filter='+ $(this).data('filter'));
     window.location.reload();
