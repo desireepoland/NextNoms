@@ -43,7 +43,10 @@ $tablet-down: new-breakpoint(max-width $desktop, 8);
   margin-left: 12px;
   padding: 0 11px 0 13px;
   text-overflow: ellipsis;
-  width: 300px;
+  width: 250px;
+  @include media(500px){
+      width: 300px;
+  }
 }
 
 #pac-input:focus {
