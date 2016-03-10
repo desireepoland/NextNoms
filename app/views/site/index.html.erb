@@ -1,53 +1,57 @@
-<section>
-  <div class="map-section">
-    <input id="pac-input" class="controls" type="text" placeholder="Find a Restaurant">
-    <div id="map"></div>
-  </div>
-
-  <div class="r-info">
-    <div class="button-group">
-      <label>
-        <input type="radio" name="button-group" <%= 'checked' if cookies[:filter] == 'all' %> >
-        <span class="button-group-item" data-filter="all">All</span>
-      </label>
-      <label>
-        <input type="radio" name="button-group" <%= 'checked' if cookies[:filter] == 'active' %> >
-        <span class="button-group-item" data-filter="active">Active</span>
-      </label>
-      <label>
-        <input type="radio" name="button-group" <%= 'checked' if cookies[:filter] == 'tried' %> >
-        <span class="button-group-item" data-filter="tried">Tried</span>
-      </label>
+<div class="main">
+  <%= render partial: "shared/flash_messages", flash: flash %>
+  <br>
+  <section>
+    <div class="map-section">
+      <input id="pac-input" class="controls" type="text" placeholder="Find a Restaurant">
+      <div id="map"></div>
     </div>
-    <% if !@restaurants.nil? && @restaurants.length > 0 %>
-      <div class="expander">
-        <ul>
-          <% @restaurants.each do |r| %>
-            <li id="<%= r.place_id %>">
-              <% if !r.users_restaurants.find_by(user: current_user).tried? %>
-                <span class="checkbox"><%= link_to '<i class="fa fa-square-o fa-fw"></i>'.html_safe, { :controller=>"restaurants", action: :update, :id => r.users_restaurants.find_by(user: current_user).id}, method: :patch %></span>
-                <a href="javascript:void(0)" class="expander-trigger expander-hidden restaurant" data-place-id="<%= r.place_id %>"></a>
-                <div class="expander-content">
-                  <%= link_to '<i class="fa fa-trash-o"></i>'.html_safe,  { :controller=>"restaurants", action: :destroy, :id => r.users_restaurants.find_by(user: current_user).id}, method: :delete, data: { confirm: 'Delete this restaurant?' }, class: "delete-r" %>
-                </div>
-              <% else %>
-                <span class="checkbox"><%= link_to '<i class="fa fa-check-square-o fa-fw"></i>'.html_safe, { :controller=>"restaurants", action: :update, :id => r.users_restaurants.find_by(user: current_user).id}, method: :patch %></span>
-                <a href="javascript:void(0)" class="expander-trigger expander-hidden tried_restaurant" data-place-id="<%= r.place_id %>"></a>
-                <div class="expander-content">
-                  <%= link_to '<i class="fa fa-trash-o"></i>'.html_safe,  { :controller=>"restaurants", action: :destroy, :id => r.users_restaurants.find_by(user: current_user).id}, method: :delete, data: { confirm: 'Delete this restaurant?' }, class: "delete-r" %>
-                </div>
-              <% end %>
-            </li>
-          <% end %>
-         </ul>
-       </div>
-    <% else %>
-       <div class="no-expander">
-         Use the search box to find restaurants to add to your list.
-       </div>
-    <% end %>
-  </div>
-</section>
+
+    <div class="r-info">
+      <div class="button-group">
+        <label>
+          <input type="radio" name="button-group" <%= 'checked' if cookies[:filter] == 'all' %> >
+          <span class="button-group-item" data-filter="all">All</span>
+        </label>
+        <label>
+          <input type="radio" name="button-group" <%= 'checked' if cookies[:filter] == 'active' %> >
+          <span class="button-group-item" data-filter="active">Active</span>
+        </label>
+        <label>
+          <input type="radio" name="button-group" <%= 'checked' if cookies[:filter] == 'tried' %> >
+          <span class="button-group-item" data-filter="tried">Tried</span>
+        </label>
+      </div>
+      <% if !@restaurants.nil? && @restaurants.length > 0 %>
+        <div class="expander">
+          <ul>
+            <% @restaurants.each do |r| %>
+              <li id="<%= r.place_id %>">
+                <% if !r.users_restaurants.find_by(user: current_user).tried? %>
+                  <span class="checkbox"><%= link_to '<i class="fa fa-square-o fa-fw"></i>'.html_safe, { :controller=>"restaurants", action: :update, :id => r.users_restaurants.find_by(user: current_user).id}, method: :patch %></span>
+                  <a href="javascript:void(0)" class="expander-trigger expander-hidden restaurant" data-place-id="<%= r.place_id %>"></a>
+                  <div class="expander-content">
+                    <%= link_to '<i class="fa fa-trash-o"></i>'.html_safe,  { :controller=>"restaurants", action: :destroy, :id => r.users_restaurants.find_by(user: current_user).id}, method: :delete, data: { confirm: 'Delete this restaurant?' }, class: "delete-r" %>
+                  </div>
+                <% else %>
+                  <span class="checkbox"><%= link_to '<i class="fa fa-check-square-o fa-fw"></i>'.html_safe, { :controller=>"restaurants", action: :update, :id => r.users_restaurants.find_by(user: current_user).id}, method: :patch %></span>
+                  <a href="javascript:void(0)" class="expander-trigger expander-hidden tried_restaurant" data-place-id="<%= r.place_id %>"></a>
+                  <div class="expander-content">
+                    <%= link_to '<i class="fa fa-trash-o"></i>'.html_safe,  { :controller=>"restaurants", action: :destroy, :id => r.users_restaurants.find_by(user: current_user).id}, method: :delete, data: { confirm: 'Delete this restaurant?' }, class: "delete-r" %>
+                  </div>
+                <% end %>
+              </li>
+            <% end %>
+           </ul>
+         </div>
+      <% else %>
+         <div class="no-expander">
+           Use the search box to find restaurants to add to your list.
+         </div>
+      <% end %>
+    </div>
+  </section>
+</div>
 
 <script src="https://maps.googleapis.com/maps/api/js?key=<%= @key %>&callback=initMap&libraries=places"
     async defer></script>

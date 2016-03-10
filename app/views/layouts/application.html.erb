@@ -14,20 +14,7 @@
   <body>
     <% if logged_in? %>
       <%= render 'layouts/navbar' %>
-      <div class="main">
-      <%= render partial: "shared/flash_messages", flash: flash %>
-      <br>
-      <%= yield %>
-      </div>
-    <% else %>
-      <div id="splash-image">
-        <%= render partial: "shared/flash_messages", flash: flash %>
-        <div id="login-link">
-          <%= image_tag "namewhite.png" %>
-          <br>
-          <%= link_to '<i class="fa fa-facebook-square"></i> Sign in with Facebook'.html_safe, "/auth/facebook" %>
-        </div>
-      </div>
     <% end %>
+    <%= yield %>
   </body>
 </html>

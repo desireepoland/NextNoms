@@ -15,12 +15,12 @@ class ApplicationController < ActionController::Base
     cookies[:filter] ||= 'all'
   end
 
-  # def require_login
-  #   unless current_user
-  #     flash[:error] = "Please log in."
-  #     redirect_to root_path
-  #   end
-  # end
+  def require_login
+    unless current_user
+      # flash[:error] = "Please log in."
+      redirect_to welcome_path
+    end
+  end
 
   def logged_in?
     !current_user.nil?
