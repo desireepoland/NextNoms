@@ -174,6 +174,14 @@ function initMap() {
           icon: icon
         });
 
+        // Event listener for clicking on the list and centering the map
+        $("#"+placeId).on('click', function(){
+          map.setCenter(place.geometry.location);
+          infowindow.setContent('<div><strong>' + place.name + '</strong><br>' +
+          place.formatted_address + '</div>');
+          infowindow.open(map, marker);
+        });
+
         //on click of marker display place info
         google.maps.event.addListener(marker, 'click', function () {
           infowindow.setContent('<div><strong>' + place.name + '</strong><br>' +
