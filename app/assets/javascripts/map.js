@@ -197,6 +197,7 @@ function initMap() {
           map.setCenter(marker.getPosition());
           $('.selected').removeClass('selected');
           document.getElementById(placeId).className += "selected";
+          $('.expander-trigger').addClass('expander-hidden');
           $("#"+placeId).find('.expander-trigger').removeClass('expander-hidden');
         });
 
