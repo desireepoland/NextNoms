@@ -3,11 +3,29 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 .registration {
-  @include outer-container;
+  min-height: 100%;
+  min-width: 100%;
   color:#22264b;
+  background-color: #e8edf3;
+  position: absolute;
+  background-size: cover;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  font-family: 'Lato', sans-serif;
+}
+.r-container {
+  @include outer-container;
   .r-form {
-    @include span-columns(8);
-    @include shift(2);
+    background-color: rgba(255,255,255,.7);
+    border-radius: 7px;
+    padding: 10px;
+  }
+  @include media($small-tablet-width){
+    .r-form {
+      @include span-columns(6);
+      @include shift(3);
+    }
   }
 }
 .new-act-header {
