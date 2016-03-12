@@ -73,4 +73,12 @@ RSpec.describe SessionsController, type: :controller do
     end
   end
 
+  describe "failure" do
+    it "redirects to root path" do
+      get :failure
+      expect(subject).to redirect_to root_path
+    end
+
+  end
+
 end
