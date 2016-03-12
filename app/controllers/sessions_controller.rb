@@ -8,6 +8,7 @@ class SessionsController < ApplicationController
   if auth_hash["uid"]
     @user = User.find_or_create_from_omniauth(auth_hash)
     if @user
+      UserMailer.welcome_email(@user).deliver_later
       session[:user_id] = @user.id
     else
       flash[:notice] = "Failed to save the user"

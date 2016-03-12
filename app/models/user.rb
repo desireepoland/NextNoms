@@ -2,6 +2,7 @@ class User < ActiveRecord::Base
   has_many :restaurants, :through => :users_restaurants
   has_many :users_restaurants
   validates :name, presence: true
+  after_create :send_welcome_email
 
   def restaurants_for(filter = 'all')
     if filter == 'tried'
@@ -30,5 +31,10 @@ class User < ActiveRecord::Base
         nil
       end
     end
+  end
+
+  protected
+  def send_welcome_email
+    UserMailer.welcome_email(self).deliver_later
   end
 end
