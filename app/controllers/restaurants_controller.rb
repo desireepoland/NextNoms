@@ -1,6 +1,6 @@
 class RestaurantsController < ApplicationController
   before_action :require_login
-  
+
   def create
     restaurant = Restaurant.find_or_create_by(place_id: params[:place_id])
     current_user.restaurants << restaurant unless current_user.restaurants.include?(restaurant)
@@ -20,5 +20,6 @@ class RestaurantsController < ApplicationController
 
   def roulette
     @restaurant = current_user.restaurants.sample
+    @key = ENV["GOOGLE_API_KEY"]
   end
 end

@@ -2,5 +2,12 @@
   Please add a restaurant to your list to use this feature.
   <%= link_to "Home", root_path %>
 <% else %>
+  <%= content_tag :div, "", id:"r-choice", data: {:place_id => @restaurant.place_id} %>
   <%= @restaurant.id %>
+  <div id="r-map"></div>
 <% end %>
+
+
+
+<script src="https://maps.googleapis.com/maps/api/js?key=<%= @key %>&callback=initRouletteMap&libraries=places"
+    async defer></script>
