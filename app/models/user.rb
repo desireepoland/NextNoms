@@ -14,14 +14,15 @@ class User < ActiveRecord::Base
   end
 
   def self.find_or_create_from_omniauth(auth_hash)
-    user = self.find_by(uid: auth_hash["uid"])
+    user = self.find_by(uid: auth_hash["uid"], provider: auth_hash['provider'])
     if !user.nil?
       return user
     else
       user = User.new
       user.uid = auth_hash["uid"]
       user.name = auth_hash["info"]["name"]
-      user.provider   = auth_hash["provider"]
+      user.provider = auth_hash["provider"]
+      user.email = auth_hash["info"]["email"]
       user.avatar_url = auth_hash["info"]["image"]
       if user.save
         user

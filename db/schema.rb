@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160228041924) do
+ActiveRecord::Schema.define(version: 20160312012656) do
 
   create_table "restaurants", force: :cascade do |t|
     t.string   "place_id"
@@ -26,6 +26,7 @@ ActiveRecord::Schema.define(version: 20160228041924) do
     t.string   "avatar_url"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string   "email"
   end
 
   create_table "users_restaurants", force: :cascade do |t|
