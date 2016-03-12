@@ -15,4 +15,7 @@ class RestaurantsController < ApplicationController
     UsersRestaurant.find(params[:id]).destroy
     redirect_to root_path
   end
+
+  def roulette
+  end
 end
