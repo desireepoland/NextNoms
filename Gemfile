@@ -30,6 +30,7 @@ gem 'react-rails', '~> 1.6.0'
 
 gem "omniauth"
 gem 'omniauth-facebook'
+gem 'omniauth-identity'
 
 gem 'httparty'
 
