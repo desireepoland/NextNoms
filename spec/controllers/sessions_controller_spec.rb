@@ -14,7 +14,7 @@ RSpec.describe SessionsController, type: :controller do
         expect { get :create, provider: :facebook }.to change(User, :count).by(1)
       end
 
-      it "assigns the @user var" do
+      it "assigns the user var" do
         get :create, provider: :facebook
         expect(assigns(:user)).to be_an_instance_of User
       end
