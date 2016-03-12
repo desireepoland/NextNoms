@@ -20,6 +20,7 @@ class RestaurantsController < ApplicationController
 
   def roulette
     @restaurant = current_user.restaurants.sample
+    @tried = @restaurant.users_restaurants.find_by(:user => current_user).tried
     @key = ENV["GOOGLE_API_KEY"]
   end
 end

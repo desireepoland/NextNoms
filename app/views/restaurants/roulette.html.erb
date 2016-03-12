@@ -3,8 +3,9 @@
   Please add a restaurant to your list to use this feature.
   <%= link_to "Home", root_path %>
 <% else %>
-  <%= content_tag :div, "", id:"r-choice", data: {:place_id => @restaurant.place_id} %>
+  <%= content_tag :div, "", id:"r-choice", data: {:place_id => @restaurant.place_id, :tried => @tried } %>
   <%= @restaurant.id %>
+  <%= @tried %>
   <div id="r-map"></div>
 <% end %>
 
