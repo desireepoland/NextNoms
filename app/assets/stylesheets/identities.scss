@@ -1,3 +1,22 @@
 // Place all the styles related to the identities controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.registration {
+  @include outer-container;
+  color:#22264b;
+  .r-form {
+    @include span-columns(8);
+    @include shift(2);
+  }
+}
+.new-act-header {
+  font-size: 2em;
+  text-align: center;
+  margin-top: 1em;
+}
+
+.r-btn {
+  display: block !important;
+  margin: 0 auto;
+}
