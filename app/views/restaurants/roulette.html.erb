@@ -1,1 +1,6 @@
-
+<% if @restaurant.nil? %>
+  Please add a restaurant to your list to use this feature.
+  <%= link_to "Home", root_path %>
+<% else %>
+  <%= @restaurant.id %>
+<% end %>
