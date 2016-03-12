@@ -16,10 +16,11 @@ $small-tablet-width: em(720);
   -o-background-size: cover;
 }
 
-#login-link {
+#login-content {
+  @include outer-container;
   width: 100%;
   text-align: center;
-  a {
+  .splash-link {
     color: white;
     text-shadow: 2px 4px 3px rgba(0,0,0,0.3);
     font-size: 20px;
@@ -28,17 +29,37 @@ $small-tablet-width: em(720);
     border-radius: 15px;
     font-family: 'Lato', sans-serif;
     background-color: rgba(0,0,0,0.6);
+    margin: 10px auto;
   }
-  a:hover {
+  .splash-link:hover {
     background-color: rgba(0,0,0,0.8);
   }
+  .splash-link {
+    @include span-columns(8);
+    @include shift(2);
+  }
+  .login-form {
+    @include span-columns(8);
+    @include shift(2);
+    color: white;
+    text-shadow: 2px 4px 3px rgba(0,0,0,0.3);
+    font-size: 20px;
+    text-align: center;
+    padding: 20px;
+    border-radius: 15px;
+    font-family: 'Lato', sans-serif;
+    background-color: rgba(0,0,0,0.7);
+    margin-bottom: 15px;
+    a:hover {
+      color: shade(#b56969, 20%);
+    }
+  }
   @include media($small-tablet-width){
-    a {
-      background-color: transparent;
+    .splash-link {
       font-size: 36px;
     }
-    a:hover {
-      background-color: rgba(0,0,0,0.6);
+    .splash-link:hover {
+      background-color: rgba(0,0,0,0.8);
     }
   }
 }
