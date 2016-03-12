@@ -5,7 +5,7 @@
     <nav role="navigation">
       <ul id="js-navigation-menu" class="navigation-menu show">
         <!-- <li class="nav-link"><a href="javascript:void(0)">About Us</a></li> -->
-        <li class="nav-link"> Welcome, <strong><%= current_user.name  %></strong> !</li>
+        <li class="nav-link"><%= link_to '<i class="fa fa-random"></i> Restaurant Roulette'.html_safe, roulette_path %></li>
         <li class="nav-link"><%= link_to logout_path, method: :delete do %><i class="fa fa-sign-out"></i>Log Out<% end %></li>
       </ul>
     </nav>
