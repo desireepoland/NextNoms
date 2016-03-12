@@ -2,11 +2,7 @@
 <html>
   <%= render 'layouts/head' %>
   <body>
-    <%= render 'layouts/navbar' %>
-    <div class="main">
     <%= render partial: "shared/flash_messages", flash: flash %>
-    <br>
     <%= yield %>
-    </div>
   </body>
 </html>
