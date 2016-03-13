@@ -48,13 +48,17 @@ function initRouletteMap() {
                 infowindow.open(rMap, this);
             });
 
+
+
             //Set up info to be displayed for restaurant to go into div
             var htmlStr = '';
+            var htmlHours = '';
 
             if(place.permanently_closed){
               htmlStr += 'This location has been permanently closed. Consider removing it from your list.';
             } else {
-              htmlStr += '<strong>' + place.name + '</strong><br><i class="fa fa-map-marker"></i>&emsp;' + place.formatted_address + '<br>';
+              var htmlName = '<h2>'+ place.name +'<h2>';
+              htmlStr += '<i class="fa fa-map-marker"></i>&emsp;' + place.formatted_address + '<br>';
 
               if(place.website !== undefined){
                 htmlStr += '<i class="fa fa-globe"></i>&emsp;<a href="' + place.website + '" target="_blank">'+ place.website +'</a><br>';
@@ -84,13 +88,15 @@ function initRouletteMap() {
                 htmlStr += '<i class="fa fa-clock-o"></i>&emsp;' + (place.opening_hours.open_now ? '<span class="open">Open Now</span><br>' : '<span class="closed">Currently Closed</span><br>');
 
                 for (var i=0; i < place.opening_hours.weekday_text.length; i++) {
-                  htmlStr += '<span class="day">' + place.opening_hours.weekday_text[i] + '</span><br>';
+                  htmlHours += place.opening_hours.weekday_text[i] + '<br>';
                 }
               }
             }
 
-            // Add above info into restaurant's expander div
+            // Add above info onto page
+            $(".roulette-name").append(htmlName);
             $(".roulette-rest").append(htmlStr);
+            $(".roulette-hours").append(htmlHours);
         }
     });
 

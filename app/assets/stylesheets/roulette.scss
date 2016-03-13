@@ -1,3 +1,5 @@
+$small-tablet-width: em(720);
+
 #r-map {
   background: transparent image-url('ajax-loader.gif') no-repeat center center;
   width: 100%;
@@ -5,4 +7,26 @@
   // @include media($small-tablet-width){
   //   height: 473px;
   // }
+}
+
+.restaurant-info {
+  @include outer-container;
+  margin-bottom: 1em;
+  .roulette-name {
+    @include span-columns(12);
+  }
+  .roulette-hours {
+    font-size: 14px;
+    margin-left: 18px;
+  }
+  @include media($small-tablet-width){
+    .roulette-rest {
+      @include span-columns(6);
+    }
+    .roulette-hours {
+      @include span-columns(6);
+      margin-left: 0;
+    }
+  }
+
 }
