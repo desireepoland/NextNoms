@@ -18,6 +18,7 @@ function initRouletteMap() {
 
         if (status == google.maps.places.PlacesServiceStatus.OK) {
 
+          // Set up appropriate marker
           if($('#r-choice').data('tried')){
             var iconImage = "https://dl.dropboxusercontent.com/u/63083085/NextNoms/purpmarker.png";
           } else {
@@ -37,6 +38,7 @@ function initRouletteMap() {
                 icon: icon
             });
 
+            // Set Up info window for restaurant, center map on it
             infowindow.setContent(place.name);
             infowindow.open(rMap, marker);
             rMap.setCenter(place.geometry.location);
@@ -45,6 +47,50 @@ function initRouletteMap() {
                 infowindow.setContent(place.name);
                 infowindow.open(rMap, this);
             });
+
+            //Set up info to be displayed for restaurant to go into div
+            var htmlStr = '';
+
+            if(place.permanently_closed){
+              htmlStr += 'This location has been permanently closed. Consider removing it from your list.';
+            } else {
+              htmlStr += '<strong>' + place.name + '</strong><br><i class="fa fa-map-marker"></i>&emsp;' + place.formatted_address + '<br>';
+
+              if(place.website !== undefined){
+                htmlStr += '<i class="fa fa-globe"></i>&emsp;<a href="' + place.website + '" target="_blank">'+ place.website +'</a><br>';
+              }
+
+              if(place.formatted_phone_number !== undefined){
+                htmlStr += '<i class="fa fa-phone"></i>&emsp;' + place.formatted_phone_number + '<br>';
+              }
+
+              htmlStr += '<i class="fa fa-star"></i>&emsp;Average Rating: ' + place.rating + '<br>';
+
+              if(place.price_level === 0){
+                htmlStr += '<i class="fa fa-money"></i>&emsp;Price Range: Free<br>';
+              }else if(place.price_level === 1){
+                htmlStr += '<i class="fa fa-money"></i>&emsp;Price Range: $<br>';
+              }else if(place.price_level === 2){
+                htmlStr += '<i class="fa fa-money"></i>&emsp;Price Range: $$<br>';
+              }else if(place.price_level === 3){
+                htmlStr += '<i class="fa fa-money"></i>&emsp;Price Range: $$$<br>';
+              }else if(place.price_level === 1){
+                htmlStr += '<i class="fa fa-money"></i>&emsp;Price Range: $$$$<br>';
+              } else {
+                htmlStr += '';
+              }
+
+              if(place.opening_hours !== undefined){
+                htmlStr += '<i class="fa fa-clock-o"></i>&emsp;' + (place.opening_hours.open_now ? '<span class="open">Open Now</span><br>' : '<span class="closed">Currently Closed</span><br>');
+
+                for (var i=0; i < place.opening_hours.weekday_text.length; i++) {
+                  htmlStr += '<span class="day">' + place.opening_hours.weekday_text[i] + '</span><br>';
+                }
+              }
+            }
+
+            // Add above info into restaurant's expander div
+            $(".roulette-rest").append(htmlStr);
         }
     });
 

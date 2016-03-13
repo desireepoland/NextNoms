@@ -1,11 +1,15 @@
 <h1>Restaurant Roulette</h1>
+<h3>Can't decide where to eat? Let Restaurant Roulette pick for you!</h3>
+
 <% if @restaurant.nil? %>
   Please add a restaurant to your list to use this feature.
   <%= link_to "Home", root_path %>
 <% else %>
+   To generate a new random restaurant from your list, click the button below.<br>
+   (button here)<br>
+  ----------
   <%= content_tag :div, "", id:"r-choice", data: {:place_id => @restaurant.place_id, :tried => @tried } %>
-  <%= @restaurant.id %>
-  <%= @tried %>
+  <div class="roulette-rest"></div>
   <div id="r-map"></div>
 <% end %>
 
