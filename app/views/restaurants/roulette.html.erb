@@ -5,26 +5,28 @@
   Please add a restaurant to your list to use this feature.
   <%= link_to "Home", root_path %>
 <% else %>
-   To generate a new random restaurant from your list, click the button below.<br><br>
-   <div class='roulette-filter-group'>
-     <%= radio_button_tag(:roulette_filter, 'all', (cookies[:roulette_filter] == 'all')) %>
-     <%= label_tag(:roulette_filter_all, 'All')%>
+   To generate a new random restaurant from your list, click the button below.<br>
+   <div class="roulette-filters">
+     <div class='roulette-filter-group'>
+       <%= radio_button_tag(:roulette_filter, 'all', (cookies[:roulette_filter] == 'all')) %>
+       <%= label_tag(:roulette_filter_all, 'All')%>
+     </div>
+     <div class='roulette-filter-group'>
+       <%= radio_button_tag(:roulette_filter, 'active', (cookies[:roulette_filter] == 'active')) %>
+       <%= label_tag(:roulette_filter_active, 'Active')%>
+     </div>
+     <div class='roulette-filter-group'>
+       <%= radio_button_tag(:roulette_filter, 'tried', (cookies[:roulette_filter] == 'tried')) %>
+       <%= label_tag(:roulette_filter_tried, 'Tried')%>
+     </div>
    </div>
-   <div class='roulette-filter-group'>
-     <%= radio_button_tag(:roulette_filter, 'active', (cookies[:roulette_filter] == 'active')) %>
-     <%= label_tag(:roulette_filter_active, 'Active')%>
-   </div>
-   <div class='roulette-filter-group'>
-     <%= radio_button_tag(:roulette_filter, 'tried', (cookies[:roulette_filter] == 'tried')) %>
-     <%= label_tag(:roulette_filter_tried, 'Tried')%>
+   <div class="roulette-btn-div">
+     <%= link_to '<i class="fa fa-random"></i> Roulette'.html_safe, roulette_path, class:"roulette-btn" %>
    </div>
 
-
-   <%= link_to '<i class="fa fa-random"></i> Roulette'.html_safe, roulette_path, class:"roulette-btn" %>
-
-  <hr>
   <%= content_tag :div, "", id:"r-choice", data: {:place_id => @restaurant.place_id, :tried => @tried } %>
   <div class="restaurant-info">
+    <hr>
     <div class="roulette-name"></div>
     <div class="roulette-rest"></div>
     <div class="roulette-hours"></div>
