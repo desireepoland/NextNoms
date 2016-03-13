@@ -20,9 +20,9 @@ function initRouletteMap() {
 
           // Set up appropriate marker
           if($('#r-choice').data('tried')){
-            var iconImage = "https://dl.dropboxusercontent.com/u/63083085/NextNoms/purpmarker.png";
+            var iconImage = "https://dl.dropboxusercontent.com/u/63083085/NextNoms/purpmarker2.png";
           } else {
-            var iconImage = "https://dl.dropboxusercontent.com/u/63083085/NextNoms/redmarker.png";
+            var iconImage = "https://dl.dropboxusercontent.com/u/63083085/NextNoms/redmarker2.png";
           }
 
           var icon = {

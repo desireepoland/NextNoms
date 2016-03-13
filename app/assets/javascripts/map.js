@@ -210,8 +210,8 @@ function initMap() {
     });
   };
 
-  var activeColor = "https://dl.dropboxusercontent.com/u/63083085/NextNoms/redmarker.png";
-  var triedColor = "https://dl.dropboxusercontent.com/u/63083085/NextNoms/purpmarker.png";
+  var activeColor = "https://dl.dropboxusercontent.com/u/63083085/NextNoms/redmarker2.png";
+  var triedColor = "https://dl.dropboxusercontent.com/u/63083085/NextNoms/purpmarker2.png";
 
   $(".restaurant").each($.proxy(displayRestaurant, null, activeColor));
   $(".tried_restaurant").each($.proxy(displayRestaurant, null, triedColor));
