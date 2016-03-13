@@ -30,6 +30,11 @@ $(document).ready(function() {
     window.location.reload();
   });
 
+  // roulette filter
+  $('input[name=roulette_filter]').on('change', function(){
+    document.cookie = ('roulette_filter='+ this.value);
+  });
+
 // navbar js
   var menuToggle = $('#js-mobile-menu').unbind();
    $('#js-navigation-menu').removeClass("show");

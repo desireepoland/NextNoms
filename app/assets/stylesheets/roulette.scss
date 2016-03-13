@@ -17,6 +17,15 @@ $small-tablet-width: em(720);
   padding: 10px;
 }
 
+.roulette-filter-group {
+  input {
+    float: left;
+  }
+  label {
+    float: left;
+  }
+}
+
 .restaurant-info {
   @include outer-container;
   margin-bottom: 1em;

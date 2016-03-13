@@ -19,7 +19,7 @@ class RestaurantsController < ApplicationController
   end
 
   def roulette
-    @restaurant = current_user.restaurants.sample
+    @restaurant = current_user.restaurants_for(cookies[:roulette_filter]).sample
     @tried = @restaurant.users_restaurants.find_by(:user => current_user).tried
     @key = ENV["GOOGLE_API_KEY"]
   end

@@ -13,6 +13,7 @@ class ApplicationController < ActionController::Base
 
   def set_default_cookies
     cookies[:filter] ||= 'all'
+    cookies[:roulette_filter] ||= 'all'
   end
 
   def require_login
