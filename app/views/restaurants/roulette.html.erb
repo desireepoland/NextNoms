@@ -5,8 +5,8 @@
   Please add a restaurant to your list to use this feature.
   <%= link_to "Home", root_path %>
 <% else %>
-   To generate a new random restaurant from your list, click the button below.<br>
-   (button here)
+   To generate a new random restaurant from your list, click the button below.<br><br>
+   <%= link_to '<i class="fa fa-random"></i> Roulette'.html_safe, roulette_path, class:"roulette-btn" %>
   <hr>
   <%= content_tag :div, "", id:"r-choice", data: {:place_id => @restaurant.place_id, :tried => @tried } %>
   <div class="restaurant-info">

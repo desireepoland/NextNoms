@@ -9,6 +9,14 @@ $small-tablet-width: em(720);
   // }
 }
 
+.roulette-btn {
+  background-color: #b56969;
+  text-align: center;
+  border-radius: 3px;
+  color: #fff;
+  padding: 10px;
+}
+
 .restaurant-info {
   @include outer-container;
   margin-bottom: 1em;
