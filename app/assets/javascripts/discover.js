@@ -3,7 +3,7 @@ var service;
 
 function initDiscoverMap() {
   var pos;
-  var dMap = new google.maps.Map(document.getElementById('discover-map'), {
+  dMap = new google.maps.Map(document.getElementById('discover-map'), {
     center: pos,
     zoom: 13
   });
@@ -33,17 +33,36 @@ function initDiscoverMap() {
     // Browser doesn't support Geolocation
     handleLocationError(false, infoWindow, dMap.getCenter());
   }
-
-
 }
 
+// get the results of discover search, and do stuff with them
 function callback(results, status) {
   if (status == google.maps.places.PlacesServiceStatus.OK) {
     for (var i = 0; i < results.length; i++) {
       var place = results[i];
-      console.log(results[i]);
+      var htmlStr = '<div class="d-restaurant">'+ place.name + '</div>';
+
+      // Add above info onto page
+      $(".discover-results").append(htmlStr);
+
+      // Add a marker on map for each restaurant
+      addMarker(place);
     }
   }
+}
+
+function addMarker(place) {
+  var marker = new google.maps.Marker({
+    map: dMap,
+    position: place.geometry.location,
+    title: place.name,
+    icon: {
+      url: "https://dl.dropboxusercontent.com/u/63083085/NextNoms/yellowmarker.png",
+      scaledSize: new google.maps.Size(32, 43), // scaled size
+      origin: new google.maps.Point(0, 0), // origin
+      anchor: new google.maps.Point(16, 43) // anchor
+    }
+  });
 }
 
 function handleLocationError(browserHasGeolocation, infoWindow, pos) {
