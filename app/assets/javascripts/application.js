@@ -12,7 +12,7 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require turbolinks
+
 //= require react
 //= require react_ujs
 //= require components
@@ -33,6 +33,9 @@ $(document).ready(function() {
 // navbar js
   var menuToggle = $('#js-mobile-menu').unbind();
    $('#js-navigation-menu').removeClass("show");
+   $(document).on('page:load', function(){
+     $('#js-navigation-menu').removeClass("show");
+   });
 
   menuToggle.on('click', function(e) {
     e.preventDefault();
@@ -42,4 +45,9 @@ $(document).ready(function() {
      }
    });
  });
+
+ // //roulette button refresh
+ // $('.roulette-btn').click(function(){
+ //   location.reload();
+ // });
 });
