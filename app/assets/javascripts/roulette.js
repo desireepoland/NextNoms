@@ -39,12 +39,14 @@ function initRouletteMap() {
             });
 
             // Set Up info window for restaurant, center map on it
-            infowindow.setContent(place.name);
+            infowindow.setContent('<div><strong>' + place.name + '</strong><br>' +
+            place.formatted_address + '</div>');
             infowindow.open(rMap, marker);
             rMap.setCenter(place.geometry.location);
 
             google.maps.event.addListener(marker, 'click', function () {
-                infowindow.setContent(place.name);
+                infowindow.setContent('<div><strong>' + place.name + '</strong><br>' +
+                place.formatted_address + '</div>');
                 infowindow.open(rMap, this);
             });
 
