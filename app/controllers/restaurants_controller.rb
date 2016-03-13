@@ -23,4 +23,8 @@ class RestaurantsController < ApplicationController
     @tried = @restaurant.users_restaurants.find_by(:user => current_user).tried if @restaurant
     @key = ENV["GOOGLE_API_KEY"]
   end
+
+  def discover
+    @key = ENV["GOOGLE_API_KEY"]
+  end
 end

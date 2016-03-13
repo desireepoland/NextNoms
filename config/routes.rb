@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   delete "/logout/" => "sessions#destroy", as: :logout
   get "/auth/failure", to: "sessions#failure"
   get "/roulette" => "restaurants#roulette", as: :roulette
+  get "/discover" => "restaurants#discover", as: :discover
   resources :restaurants, only: [:create, :destroy, :update]
   resources :identities
 end
