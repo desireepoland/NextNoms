@@ -8,5 +8,8 @@ class SiteController < ApplicationController
     end
   end
   def about
+    if !logged_in?
+      render :about, layout: "guest"
+    end
   end
 end
