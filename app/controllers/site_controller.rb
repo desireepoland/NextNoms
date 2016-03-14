@@ -7,4 +7,6 @@ class SiteController < ApplicationController
       render :welcome, layout: "guest"
     end
   end
+  def about
+  end
 end

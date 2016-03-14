@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   get "/auth/failure", to: "sessions#failure"
   get "/roulette" => "restaurants#roulette", as: :roulette
   get "/discover" => "restaurants#discover", as: :discover
+  get "/about" => "site#about", as: :about
   resources :restaurants, only: [:create, :destroy, :update]
   resources :identities
 end
