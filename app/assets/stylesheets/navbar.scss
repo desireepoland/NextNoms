@@ -44,6 +44,10 @@ header.navigation {
     }
   }
 
+  .logo img:last-child { display:none }
+  .logo:hover img:first-child { display:none }
+  .logo:hover img:last-child { display:inline-block }
+
   // Mobile view
 
   .navigation-menu-button {
