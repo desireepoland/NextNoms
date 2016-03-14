@@ -58,6 +58,9 @@ function callback(results, status) {
       } else {
         htmlStr += '';
       }
+      if(place.opening_hours !== undefined){
+        htmlStr += '<i class="fa fa-clock-o"></i>&emsp;' + (place.opening_hours.open_now ? '<span class="open">Open Now</span><br>' : '<span class="closed">Currently Closed</span><br>');
+      }
       htmlStr += '</div>';
 
       // Add above info onto page
