@@ -50,46 +50,52 @@ function callback(results, status) {
       return $.inArray(r.place_id, excludePlaceIds) === -1;
     });
 
-    // for each result, add restaurant info into a div
-    for (var i = 0; i < filteredResults.length; i++) {
-      var place = filteredResults[i];
-      var htmlStr = '<div class="d-restaurant"><br><strong>'+ place.name + "</strong><br>";
-      htmlStr += '<i class="fa fa-map-marker"></i>&emsp;' + place.vicinity + '<br>';
-      htmlStr += '<i class="fa fa-star"></i>&emsp;Average Rating: ' + place.rating + '<br>';
-      if(place.price_level === 0){
-        htmlStr += '<i class="fa fa-money"></i>&emsp;Price Range: Free<br>';
-      }else if(place.price_level === 1){
-        htmlStr += '<i class="fa fa-money"></i>&emsp;Price Range: $<br>';
-      }else if(place.price_level === 2){
-        htmlStr += '<i class="fa fa-money"></i>&emsp;Price Range: $$<br>';
-      }else if(place.price_level === 3){
-        htmlStr += '<i class="fa fa-money"></i>&emsp;Price Range: $$$<br>';
-      }else if(place.price_level === 1){
-        htmlStr += '<i class="fa fa-money"></i>&emsp;Price Range: $$$$<br>';
-      } else {
-        htmlStr += '';
-      }
-      if(place.opening_hours !== undefined){
-        htmlStr += '<i class="fa fa-clock-o"></i>&emsp;' + (place.opening_hours.open_now ? '<span class="open">Open Now</span><br>' : '<span class="closed">Currently Closed</span><br>');
-      }
-      htmlStr += '<a href="#" class="add-dnom" data-place-id="'+place.place_id+'"><i class="fa fa-plus"></i> Add To My NextNoms</a>'
-      htmlStr += '</div>';
+    if(filteredResults.length > 0){
+      // for each result, add restaurant info into a div
+      for (var i = 0; i < filteredResults.length; i++) {
+        var place = filteredResults[i];
+        var htmlStr = '<div class="d-restaurant"><br><strong>'+ place.name + "</strong><br>";
+        htmlStr += '<i class="fa fa-map-marker"></i>&emsp;' + place.vicinity + '<br>';
+        htmlStr += '<i class="fa fa-star"></i>&emsp;Average Rating: ' + place.rating + '<br>';
+        if(place.price_level === 0){
+          htmlStr += '<i class="fa fa-money"></i>&emsp;Price Range: Free<br>';
+        }else if(place.price_level === 1){
+          htmlStr += '<i class="fa fa-money"></i>&emsp;Price Range: $<br>';
+        }else if(place.price_level === 2){
+          htmlStr += '<i class="fa fa-money"></i>&emsp;Price Range: $$<br>';
+        }else if(place.price_level === 3){
+          htmlStr += '<i class="fa fa-money"></i>&emsp;Price Range: $$$<br>';
+        }else if(place.price_level === 1){
+          htmlStr += '<i class="fa fa-money"></i>&emsp;Price Range: $$$$<br>';
+        } else {
+          htmlStr += '';
+        }
+        if(place.opening_hours !== undefined){
+          htmlStr += '<i class="fa fa-clock-o"></i>&emsp;' + (place.opening_hours.open_now ? '<span class="open">Open Now</span><br>' : '<span class="closed">Currently Closed</span><br>');
+        }
+        htmlStr += '<a href="#" class="add-dnom" data-place-id="'+place.place_id+'"><i class="fa fa-plus"></i> Add To My NextNoms</a>'
+        htmlStr += '</div>';
 
-      // Add above info onto page
+        // Add above info onto page
+        $(".discover-results").append(htmlStr);
+
+        // Add image to beginning of div
+        var img = document.createElement("img");
+        if(place.photos !== undefined){
+          img.src = place.photos[0].getUrl({ 'maxWidth': 150, 'maxHeight': 150 });
+        } else {
+          img.src = "https://dl.dropboxusercontent.com/u/63083085/NextNoms/noimageavailable.png";
+        }
+        $(".discover-results div:last-child").prepend(img);
+
+        // Add a marker on map for each restaurant
+        addMarker(place);
+      }
+    } else {
+      var htmlStr = '<div>All Discover results at your current location have already been added to your NextNoms list.</div>'
       $(".discover-results").append(htmlStr);
-
-      // Add image to beginning of div
-      var img = document.createElement("img");
-      if(place.photos !== undefined){
-        img.src = place.photos[0].getUrl({ 'maxWidth': 150, 'maxHeight': 150 });
-      } else {
-        img.src = "https://dl.dropboxusercontent.com/u/63083085/NextNoms/noimageavailable.png";
-      }
-      $(".discover-results div:last-child").prepend(img);
-
-      // Add a marker on map for each restaurant
-      addMarker(place);
     }
+
 
     // Add restaurant to current_user's restaurants on click of add-nom link
     $(".add-dnom").on("click", function(e){
