@@ -6,7 +6,7 @@ function initDiscoverMap() {
   var pos;
   dMap = new google.maps.Map(document.getElementById('discover-map'), {
     center: pos,
-    zoom: 13
+    zoom: 15
   });
 
   //HTML5 geolocation.
@@ -21,8 +21,8 @@ function initDiscoverMap() {
 
       var request = {
         location: pos,
-        radius: '2500',
-        type: 'restaurant'
+        types: ['restaurant'],
+        rankBy: google.maps.places.RankBy.DISTANCE
       };
 
       infoWindow = new google.maps.InfoWindow();
