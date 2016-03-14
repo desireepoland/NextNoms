@@ -13,9 +13,6 @@ function initMap() {
         lat: position.coords.latitude,
         lng: position.coords.longitude
       };
-      // var infoWindow = new google.maps.InfoWindow({map: map});
-      // infoWindow.setPosition(pos);
-      // infoWindow.setContent('You are here.');
       map.setCenter(pos);
     }, function() {
       handleLocationError(true, infoWindow, map.getCenter());
