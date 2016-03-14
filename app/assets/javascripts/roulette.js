@@ -2,7 +2,8 @@ var rMap;
 function initRouletteMap() {
   var pos;
   var rMap = new google.maps.Map(document.getElementById('r-map'), {
-    zoom: 13
+    zoom: 13,
+    mapTypeControl: false
   });
 
   // set request to place id
