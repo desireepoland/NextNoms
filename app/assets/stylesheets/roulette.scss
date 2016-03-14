@@ -12,6 +12,10 @@ $small-tablet-width: em(720);
   border-radius: 3px;
   color: #fff;
   padding: 10px;
+  &:hover {
+    color: white;
+    background-color: shade(#b56969, 25%);
+  }
 }
 
 .roulette-btn-div{
