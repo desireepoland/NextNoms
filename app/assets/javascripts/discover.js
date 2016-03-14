@@ -42,8 +42,23 @@ function callback(results, status) {
   if (status == google.maps.places.PlacesServiceStatus.OK) {
     for (var i = 0; i < results.length; i++) {
       var place = results[i];
-      var htmlStr = '<div class="d-restaurant"><br>'+ place.name;
-      htmlStr += '<br></div>';
+      var htmlStr = '<div class="d-restaurant"><br><strong>'+ place.name + "</strong><br>";
+      htmlStr += '<i class="fa fa-map-marker"></i>&emsp;' + place.vicinity + '<br>';
+      htmlStr += '<i class="fa fa-star"></i>&emsp;Average Rating: ' + place.rating + '<br>';
+      if(place.price_level === 0){
+        htmlStr += '<i class="fa fa-money"></i>&emsp;Price Range: Free<br>';
+      }else if(place.price_level === 1){
+        htmlStr += '<i class="fa fa-money"></i>&emsp;Price Range: $<br>';
+      }else if(place.price_level === 2){
+        htmlStr += '<i class="fa fa-money"></i>&emsp;Price Range: $$<br>';
+      }else if(place.price_level === 3){
+        htmlStr += '<i class="fa fa-money"></i>&emsp;Price Range: $$$<br>';
+      }else if(place.price_level === 1){
+        htmlStr += '<i class="fa fa-money"></i>&emsp;Price Range: $$$$<br>';
+      } else {
+        htmlStr += '';
+      }
+      htmlStr += '</div>';
 
       // Add above info onto page
       $(".discover-results").append(htmlStr);
