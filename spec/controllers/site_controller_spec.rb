@@ -33,4 +33,11 @@ RSpec.describe SiteController, type: :controller do
       expect(subject).to render_template :welcome
     end
   end
+
+  describe "GET 'about'" do
+    it "renders the abput template" do
+      get :about
+      expect(subject).to render_template :about
+    end
+  end
 end
