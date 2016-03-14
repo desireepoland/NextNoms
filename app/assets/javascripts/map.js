@@ -129,7 +129,9 @@ function initMap() {
             htmlStr += '<i class="fa fa-phone"></i>&emsp;' + place.formatted_phone_number + '<br>';
           }
 
-          htmlStr += '<i class="fa fa-star"></i>&emsp;Average Rating: ' + place.rating + '<br>';
+          if(place.rating !== undefined){
+            htmlStr += '<i class="fa fa-star"></i>&emsp;Average Rating: ' + place.rating + '<br>';
+          }
 
           if(place.price_level === 0){
             htmlStr += '<i class="fa fa-money"></i>&emsp;Price Range: Free<br>';

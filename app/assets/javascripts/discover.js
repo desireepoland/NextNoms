@@ -56,7 +56,9 @@ function callback(results, status) {
         var place = filteredResults[i];
         var htmlStr = '<div class="d-restaurant"><br><strong>'+ place.name + "</strong><br>";
         htmlStr += '<i class="fa fa-map-marker"></i>&emsp;' + place.vicinity + '<br>';
-        htmlStr += '<i class="fa fa-star"></i>&emsp;Average Rating: ' + place.rating + '<br>';
+        if(place.rating !== undefined){
+          htmlStr += '<i class="fa fa-star"></i>&emsp;Average Rating: ' + place.rating + '<br>';
+        }
         if(place.price_level === 0){
           htmlStr += '<i class="fa fa-money"></i>&emsp;Price Range: Free<br>';
         }else if(place.price_level === 1){
