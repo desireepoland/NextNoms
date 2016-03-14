@@ -8,6 +8,6 @@
   @include outer-container;
   @include span-columns(12);
   .d-restaurant{
-    @include span-columns(4);
+    @include span-columns(3);
   }
 }

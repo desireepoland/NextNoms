@@ -42,18 +42,20 @@ function callback(results, status) {
   if (status == google.maps.places.PlacesServiceStatus.OK) {
     for (var i = 0; i < results.length; i++) {
       var place = results[i];
-      var htmlStr = '<div class="d-restaurant">'+ place.name;
+      var htmlStr = '<div class="d-restaurant"><br>'+ place.name;
       htmlStr += '<br></div>';
 
       // Add above info onto page
       $(".discover-results").append(htmlStr);
 
+      // Add image to beginning of div
+      var img = document.createElement("img");
       if(place.photos !== undefined){
-        var img = document.createElement("img");
-        img.src = place.photos[0].getUrl({ 'maxWidth': 100, 'maxHeight': 100 });
-        $(".discover-results div:last-child").append(img);
-        // htmlStr += '<img src="' + place.photos[0].getUrl({ 'maxWidth': 100, 'maxHeight': 100 }); + '">'
+        img.src = place.photos[0].getUrl({ 'maxWidth': 150, 'maxHeight': 150 });
+      } else {
+        img.src = "https://dl.dropboxusercontent.com/u/63083085/NextNoms/noimageavailable.png";
       }
+      $(".discover-results div:last-child").prepend(img);
 
       // Add a marker on map for each restaurant
       addMarker(place);
