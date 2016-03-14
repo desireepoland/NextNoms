@@ -25,6 +25,7 @@ class RestaurantsController < ApplicationController
   end
 
   def discover
+    @restaurants = current_user.restaurants
     @key = ENV["GOOGLE_API_KEY"]
   end
 end

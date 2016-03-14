@@ -9,10 +9,23 @@
   @include span-columns(12);
   .d-restaurant{
     @include span-columns(6);
-    height: 300px;
-    max-width: 200px;
-    border: 1px solid gray;
+    height: 325px;
+    max-width: 220px;
+    border: 1px solid #e8edf3;
     padding: 5px;
     margin: 5px;
+  }
+}
+
+.add-dnom {
+  color: white;
+  background-color: #b56969;
+  border-radius: 5px;
+  padding: 4px;
+  display: inline-block;
+  font-size: 14px;
+  &:hover {
+    color: white;
+    background-color: shade(#b56969, 25%);
   }
 }

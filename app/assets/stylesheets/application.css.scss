@@ -169,13 +169,14 @@ section{
 }
 
 .add-nom {
-  color: #b56969;
-  background-color: #e8edf3;
+  color: white;
+  background-color: #b56969;
   border-radius: 5px;
   padding: 4px;
   display: inline-block;
   font-weight: 400;
   &:hover {
-    color: shade(#b56969, 25%);
+    color: white;
+    background-color: shade(#b56969, 25%);
   }
 }

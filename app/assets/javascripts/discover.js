@@ -40,8 +40,19 @@ function initDiscoverMap() {
 // get the results of discover search, and do stuff with them
 function callback(results, status) {
   if (status == google.maps.places.PlacesServiceStatus.OK) {
-    for (var i = 0; i < results.length; i++) {
-      var place = results[i];
+
+    // make an array of the place_ids to exclude
+    var excludePlaceIds = $('.exclude-r').map(function(i,r){ return $(r).data('place-id'); });
+    // remove results that have a placeId in the excludesPlaceIds array
+    var filteredResults = $.grep(results, function(r){
+      //inArray returns index if it finds it, and returns -1 if it can not find it
+      //grep will return the true into the filteredResults array
+      return $.inArray(r.place_id, excludePlaceIds) === -1;
+    });
+
+    // for each result, add restaurant info into a div
+    for (var i = 0; i < filteredResults.length; i++) {
+      var place = filteredResults[i];
       var htmlStr = '<div class="d-restaurant"><br><strong>'+ place.name + "</strong><br>";
       htmlStr += '<i class="fa fa-map-marker"></i>&emsp;' + place.vicinity + '<br>';
       htmlStr += '<i class="fa fa-star"></i>&emsp;Average Rating: ' + place.rating + '<br>';
@@ -61,6 +72,7 @@ function callback(results, status) {
       if(place.opening_hours !== undefined){
         htmlStr += '<i class="fa fa-clock-o"></i>&emsp;' + (place.opening_hours.open_now ? '<span class="open">Open Now</span><br>' : '<span class="closed">Currently Closed</span><br>');
       }
+      htmlStr += '<a href="#" class="add-dnom" data-place-id="'+place.place_id+'"><i class="fa fa-plus"></i> Add To My NextNoms</a>'
       htmlStr += '</div>';
 
       // Add above info onto page
@@ -78,6 +90,19 @@ function callback(results, status) {
       // Add a marker on map for each restaurant
       addMarker(place);
     }
+
+    // Add restaurant to current_user's restaurants on click of add-nom link
+    $(".add-dnom").on("click", function(e){
+      e.preventDefault();
+      var self = this;
+      $.post("/restaurants", {place_id: $(self).data("place-id")})
+      .done(function(data) {
+        $(self).parent().css({ display: "none" });
+      })
+      .fail(function(){
+        console.log("POST FAIL");
+      });
+    });
   }
 }
 

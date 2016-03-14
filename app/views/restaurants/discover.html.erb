@@ -5,5 +5,9 @@
 
 <div class="discover-results"><br></div>
 
+<% @restaurants.each do |r| %>
+<%= content_tag :div, "", class:"exclude-r", data: {:place_id => r.place_id}  %>
+<% end %>
+
 <script src="https://maps.googleapis.com/maps/api/js?key=<%= @key %>&callback=initDiscoverMap&libraries=places"
     async defer></script>
