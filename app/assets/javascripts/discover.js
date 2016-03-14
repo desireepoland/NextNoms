@@ -1,5 +1,6 @@
 var dMap;
 var service;
+var infoWindow;
 
 function initDiscoverMap() {
   var pos;
@@ -24,6 +25,7 @@ function initDiscoverMap() {
         type: 'restaurant'
       };
 
+      infoWindow = new google.maps.InfoWindow();
       service = new google.maps.places.PlacesService(dMap);
       service.nearbySearch(request, callback);
     }, function() {
@@ -40,10 +42,18 @@ function callback(results, status) {
   if (status == google.maps.places.PlacesServiceStatus.OK) {
     for (var i = 0; i < results.length; i++) {
       var place = results[i];
-      var htmlStr = '<div class="d-restaurant">'+ place.name + '</div>';
+      var htmlStr = '<div class="d-restaurant">'+ place.name;
+      htmlStr += '<br></div>';
 
       // Add above info onto page
       $(".discover-results").append(htmlStr);
+
+      if(place.photos !== undefined){
+        var img = document.createElement("img");
+        img.src = place.photos[0].getUrl({ 'maxWidth': 100, 'maxHeight': 100 });
+        $(".discover-results div:last-child").append(img);
+        // htmlStr += '<img src="' + place.photos[0].getUrl({ 'maxWidth': 100, 'maxHeight': 100 }); + '">'
+      }
 
       // Add a marker on map for each restaurant
       addMarker(place);
@@ -62,6 +72,12 @@ function addMarker(place) {
       origin: new google.maps.Point(0, 0), // origin
       anchor: new google.maps.Point(16, 43) // anchor
     }
+  });
+
+  google.maps.event.addListener(marker, 'click', function () {
+      infoWindow.setContent('<div><strong>' + place.name + '</strong><br>' +
+      place.vicinity + '</div>');
+      infoWindow.open(dMap, this);
   });
 }
 
