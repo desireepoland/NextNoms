@@ -54,7 +54,7 @@ function callback(results, status) {
       // for each result, add restaurant info into a div
       for (var i = 0; i < filteredResults.length; i++) {
         var place = filteredResults[i];
-        var htmlStr = '<div class="d-restaurant"><br><strong>'+ place.name + "</strong><br>";
+        var htmlStr = '<div class="card"><div class="card-image"></div><div class="card-header">'+ place.name + '</div><div class="card-copy"><p>';
         htmlStr += '<i class="fa fa-map-marker"></i>&emsp;' + place.vicinity + '<br>';
         if(place.rating !== undefined){
           htmlStr += '<i class="fa fa-star"></i>&emsp;Average Rating: ' + place.rating + '<br>';
@@ -75,8 +75,8 @@ function callback(results, status) {
         if(place.opening_hours !== undefined){
           htmlStr += '<i class="fa fa-clock-o"></i>&emsp;' + (place.opening_hours.open_now ? '<span class="open">Open Now</span><br>' : '<span class="closed">Currently Closed</span><br>');
         }
-        htmlStr += '<a href="#" class="add-dnom" data-place-id="'+place.place_id+'"><i class="fa fa-plus"></i> Add To My NextNoms</a>'
-        htmlStr += '</div>';
+        htmlStr += '<br><a href="#" class="add-dnom" data-place-id="'+place.place_id+'"><i class="fa fa-plus"></i> Add To My NextNoms</a>'
+        htmlStr += '</p></div>';
 
         // Add above info onto page
         $(".discover-results").append(htmlStr);
@@ -84,12 +84,11 @@ function callback(results, status) {
         // Add image to beginning of div
         var img = document.createElement("img");
         if(place.photos !== undefined){
-          img.src = place.photos[0].getUrl({ 'maxWidth': 150, 'maxHeight': 150 });
+          img.src = place.photos[0].getUrl({ 'maxWidth': 375, 'maxHeight': 375 });
         } else {
           img.src = "https://dl.dropboxusercontent.com/u/63083085/NextNoms/noimageavailable.png";
         }
-        $(".discover-results div:last-child").prepend(img);
-
+        $(".discover-results div:last-child .card-image").prepend(img);
         // Add a marker on map for each restaurant
         addMarker(place);
       }

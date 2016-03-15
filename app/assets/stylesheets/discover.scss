@@ -6,40 +6,14 @@ $small-tablet-width: em(720);
   height: 250px;
 }
 
-.discover-results{
-  @include outer-container;
-  @include span-columns(12);
-  .d-restaurant{
-    text-align: center;
-    border: 1px solid #e8edf3;
-    padding: 5px;
-    margin: 5px;
-    img {
-      width: 180px;
-    }
-  }
-  @include media($small-tablet-width){
-    .d-restaurant{
-      @include span-columns(6);
-      height: 338px;
-      max-width: 220px;
-      overflow: auto;
-      img {
-        width: 100%;
-        max-height: 150px;
-      }
-    }
-  }
-}
-
 .add-dnom {
   color: white;
   background-color: #b56969;
   border-radius: 5px;
   padding: 4px;
   font-size: 14px;
-  margin-bottom: 5px;
-  text-align: center;
+  position: absolute;
+  bottom: 5px;
   &:hover {
     color: white;
     background-color: shade(#b56969, 25%);

@@ -2,8 +2,9 @@
 <h3>Looking for local restaurants to add to your NextNoms? Check out these nearby locations!</h3>
 
 <div id="discover-map"></div>
-
-<div class="discover-results"><br></div>
+<br>
+<div class="discover-results cards">
+</div>
 
 <% @restaurants.each do |r| %>
 <%= content_tag :div, "", class:"exclude-r", data: {:place_id => r.place_id}  %>
