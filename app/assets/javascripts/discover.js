@@ -43,17 +43,11 @@ function callback(results, status) {
 
     // make an array of the place_ids to exclude
     var excludePlaceIds = $('.exclude-r').map(function(i,r){ return $(r).data('place-id'); });
-    // remove results that have a placeId in the excludesPlaceIds array
-    var filteredResults = $.grep(results, function(r){
-      //inArray returns index if it finds it, and returns -1 if it can not find it
-      //grep will return the true into the filteredResults array
-      return $.inArray(r.place_id, excludePlaceIds) === -1;
-    });
 
-    if(filteredResults.length > 0){
+    if(results.length > 0){
       // for each result, add restaurant info into a div
-      for (var i = 0; i < filteredResults.length; i++) {
-        var place = filteredResults[i];
+      for (var i = 0; i < results.length; i++) {
+        var place = results[i];
         var htmlStr = '<div class="card"><div class="card-image"></div><div class="card-header">'+ place.name + '</div><div class="card-copy"><p>';
         htmlStr += '<i class="fa fa-map-marker"></i>&emsp;' + place.vicinity + '<br>';
         if(place.rating !== undefined){
@@ -75,7 +69,11 @@ function callback(results, status) {
         if(place.opening_hours !== undefined){
           htmlStr += '<i class="fa fa-clock-o"></i>&emsp;' + (place.opening_hours.open_now ? '<span class="open">Open Now</span><br>' : '<span class="closed">Currently Closed</span><br>');
         }
-        htmlStr += '<br><a href="#" class="add-dnom" data-place-id="'+place.place_id+'"><i class="fa fa-plus"></i> Add To My NextNoms</a>'
+        //inArray returns index if it finds it, and returns -1 if it can not find it
+        if($.inArray(place.place_id, excludePlaceIds) === -1){
+          htmlStr += '<br><a href="#" class="add-dnom" data-place-id="'+place.place_id+'"><i class="fa fa-plus"></i> Add To My NextNoms</a>'
+        }
+
         htmlStr += '</p></div>';
 
         // Add above info onto page
@@ -104,7 +102,7 @@ function callback(results, status) {
       var self = this;
       $.post("/restaurants", {place_id: $(self).data("place-id")})
       .done(function(data) {
-        $(self).parent().css({ display: "none" });
+        $(self).css({ display: "none" });
       })
       .fail(function(){
         console.log("POST FAIL");
