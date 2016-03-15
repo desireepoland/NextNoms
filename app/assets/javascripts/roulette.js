@@ -17,13 +17,14 @@ function initRouletteMap() {
 
   service.getDetails(request, function (place, status) {
 
-        if (status == google.maps.places.PlacesServiceStatus.OK) {
+        if (status === google.maps.places.PlacesServiceStatus.OK) {
 
+          var iconImage;
           // Set up appropriate marker
           if($('#r-choice').data('tried')){
-            var iconImage = "https://dl.dropboxusercontent.com/u/63083085/NextNoms/purpmarker2.png";
+            iconImage = "https://dl.dropboxusercontent.com/u/63083085/NextNoms/purpmarker2.png";
           } else {
-            var iconImage = "https://dl.dropboxusercontent.com/u/63083085/NextNoms/redmarker2.png";
+            iconImage = "https://dl.dropboxusercontent.com/u/63083085/NextNoms/redmarker2.png";
           }
 
           var icon = {

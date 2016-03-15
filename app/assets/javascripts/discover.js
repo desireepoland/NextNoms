@@ -39,7 +39,7 @@ function initDiscoverMap() {
 
 // get the results of discover search, and do stuff with them
 function callback(results, status) {
-  if (status == google.maps.places.PlacesServiceStatus.OK) {
+  if (status === google.maps.places.PlacesServiceStatus.OK) {
 
     // make an array of the place_ids to exclude
     var excludePlaceIds = $('.exclude-r').map(function(i,r){ return $(r).data('place-id'); });
