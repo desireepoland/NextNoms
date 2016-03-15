@@ -41,13 +41,17 @@ function initRouletteMap() {
 
             // Set Up info window for restaurant, center map on it
             infowindow.setContent('<div><strong>' + place.name + '</strong><br>' +
-            place.formatted_address + '</div>');
+            place.formatted_address + '<br><a href="https://www.google.com/maps/dir/Current+Location/'
+            + place.geometry.location.lat().toString()+','+ place.geometry.location.lng().toString()
+            + '" target="_blank">Get Directions</a></div>');
             infowindow.open(rMap, marker);
             rMap.setCenter(place.geometry.location);
 
             google.maps.event.addListener(marker, 'click', function () {
                 infowindow.setContent('<div><strong>' + place.name + '</strong><br>' +
-                place.formatted_address + '</div>');
+                place.formatted_address + '<br><a href="https://www.google.com/maps/dir/Current+Location/'
+                + place.geometry.location.lat().toString()+',' + place.geometry.location.lng().toString()
+                + '" target="_blank">Get Directions</a></div>');
                 infowindow.open(rMap, this);
             });
 
