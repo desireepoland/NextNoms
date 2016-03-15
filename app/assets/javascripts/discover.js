@@ -43,12 +43,12 @@ function callback(results, status) {
 
     // make an array of the place_ids to exclude
     var excludePlaceIds = $('.exclude-r').map(function(i,r){ return $(r).data('place-id'); });
-
+    var htmlStr;
     if(results.length > 0){
       // for each result, add restaurant info into a div
       for (var i = 0; i < results.length; i++) {
         var place = results[i];
-        var htmlStr = '<div class="card"><div class="card-image"></div><div class="card-header">'+ place.name + '</div><div class="card-copy"><p>';
+        htmlStr = '<div class="card"><div class="card-image"></div><div class="card-header">'+ place.name + '</div><div class="card-copy"><p>';
         htmlStr += '<i class="fa fa-map-marker"></i>&emsp;' + place.vicinity + '<br>';
         if(place.rating !== undefined){
           htmlStr += '<i class="fa fa-star"></i>&emsp;Average Rating: ' + place.rating + '<br>';
@@ -91,7 +91,7 @@ function callback(results, status) {
         addMarker(place);
       }
     } else {
-      var htmlStr = '<div>All Discover results at your current location have already been added to your NextNoms list.</div>'
+      htmlStr = '<div>All Discover results at your current location have already been added to your NextNoms list.</div>'
       $(".discover-results").append(htmlStr);
     }
 
