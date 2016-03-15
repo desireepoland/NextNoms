@@ -38,6 +38,7 @@ gem 'bourbon'
 gem 'neat'
 
 gem 'will_paginate', '~> 3.0.6'
+gem 'rack-canonical-host'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'

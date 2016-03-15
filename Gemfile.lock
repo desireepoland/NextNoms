@@ -38,6 +38,7 @@ GEM
       minitest (~> 5.1)
       thread_safe (~> 0.3, >= 0.3.4)
       tzinfo (~> 1.1)
+    addressable (2.4.0)
     arel (6.0.3)
     babel-source (5.8.35)
     babel-transpiler (0.7.0)
@@ -142,6 +143,9 @@ GEM
       pry (>= 0.9.10)
     puma (3.1.0)
     rack (1.6.4)
+    rack-canonical-host (0.1.0)
+      addressable
+      rack (~> 1.0)
     rack-test (0.6.3)
       rack (>= 1.0)
     rails (4.2.5.1)
@@ -260,6 +264,7 @@ DEPENDENCIES
   pg
   pry-rails
   puma
+  rack-canonical-host
   rails (= 4.2.5.1)
   react-rails (~> 1.6.0)
   rspec-rails (~> 3.0)
