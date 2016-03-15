@@ -40,6 +40,12 @@
             </li>
           <% end %>
          </ul>
+         <div id="previous-page">
+           <%= link_to "previous", root_path(page: params[:page].to_i-1) if params[:page].to_i - 1 > 0 %>
+         </div>
+         <div id="next-page">
+           <%= link_to "next", root_path(page: params[:page].to_i+1) if @restaurants.length == 10 && @next_restaurants_count > 0 %>
+         </div>
        </div>
     <% else %>
        <div class="no-expander">
