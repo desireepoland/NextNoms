@@ -181,7 +181,9 @@ function initMap() {
             $("#"+placeId).find('.expander-trigger').removeClass('expander-hidden');
             map.setCenter(place.geometry.location);
             infowindow.setContent('<div><strong>' + place.name + '</strong><br>' +
-            place.formatted_address + '<br><a href="https://www.google.com/maps/dir/Current+Location/'+place.geometry.location.lat().toString()+','+ place.geometry.location.lng().toString() + '" target="_blank">Get Directions</a></div>');
+            place.formatted_address + '<br><a href="https://www.google.com/maps/dir/Current+Location/'
+            + place.geometry.location.lat().toString()+',' + place.geometry.location.lng().toString()
+            + '" target="_blank">Get Directions</a></div>');
             infowindow.open(map, marker);
           } else {
             infowindow.close(map, marker);
@@ -191,7 +193,9 @@ function initMap() {
         //on click of marker display place info
         google.maps.event.addListener(marker, 'click', function () {
           infowindow.setContent('<div><strong>' + place.name + '</strong><br>' +
-          place.formatted_address + '<br><a href="https://www.google.com/maps/dir/Current+Location/'+place.geometry.location.lat().toString()+','+ place.geometry.location.lng().toString() + '" target="_blank">Get Directions</a></div>');
+          place.formatted_address + '<br><a href="https://www.google.com/maps/dir/Current+Location/'
+          + place.geometry.location.lat().toString()+',' + place.geometry.location.lng().toString()
+          + '" target="_blank">Get Directions</a></div>');
           infowindow.open(map, this);
           map.setCenter(marker.getPosition());
           $('.selected').removeClass('selected');
