@@ -30,7 +30,7 @@ $small-tablet-width: em(720);
   @include outer-container;
   width: 100%;
   text-align: center;
-  margin: 20px auto 0;
+  margin: 25px auto 0;
   .splash-link {
     color: white;
     text-shadow: 2px 4px 3px rgba(0,0,0,0.3);
@@ -85,16 +85,16 @@ a.new-act-link:hover {
   background-position: top;
   background-repeat: no-repeat;
   background-size: cover;
-  padding-bottom: 24px;
+  padding-bottom: 10px;
 
   .hero-logo img {
     height: 100%;
     width: 100%;
-    margin-bottom: 1em;
+    margin-bottom: 2em;
     @include media($small-tablet-width){
       height: 13em;
       width: auto;
-      margin-bottom: 1em;
+      margin-bottom: 2em;
     }
   }
 
