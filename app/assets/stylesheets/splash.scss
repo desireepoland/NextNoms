@@ -1,65 +1,135 @@
 $small-tablet-width: em(720);
 
-#splash-image {
-  min-height: 100%;
-  min-width: 100%;
-  position: absolute;
+#login-content {
+  @include outer-container;
+  width: 100%;
+  text-align: center;
+  .login-form {
+    @include span-columns(12);
+    color: white;
+    text-shadow: 2px 4px 3px rgba(0,0,0,0.3);
+    font-size: 20px;
+    text-align: center;
+    padding: 20px;
+    line-height: 10px;
+    border-radius: 15px;
+    font-family: 'Lato', sans-serif;
+    background-color: rgba(0,0,0,0.7);
+    margin-bottom: 15px;
+    .field {
+      text-align: left;;
+    }
+    @include media($small-tablet-width){
+      @include span-columns(6);
+      @include shift(3);
+    }
+  }
+}
+
+.login-links {
+  @include outer-container;
+  width: 100%;
+  text-align: center;
+  margin: 20px auto 0;
+  .splash-link {
+    color: white;
+    text-shadow: 2px 4px 3px rgba(0,0,0,0.3);
+    font-size: 18px;
+    text-align: center;
+    padding: 10px;
+    border-radius: 15px;
+    font-family: 'Lato', sans-serif;
+    background-color: rgba(5,5,11,0.8);
+    margin: 5px auto;
+  }
+  .splash-link:hover {
+    background-color: rgba(5,5,11,0.9);
+  }
+  .splash-link {
+    @include span-columns(12);
+  }
+  @include media($small-tablet-width){
+    .splash-link {
+      @include span-columns(5);
+      @include shift(3.5);
+      font-size: 26px;
+    }
+  }
+}
+
+a.new-act-link {
+  text-align: center;
+  color: white;
+  font-size: 18px;
+}
+a.new-act-link:hover {
+  color: #b56969;
+}
+
+
+
+.hero.splash {
+  $base-border-radius: 3px !default;
+  $action-color: #477DCA !default;
+  $large-screen: em(860) !default;
+  $hero-background-top: #7F99BE;
+  $hero-background-bottom: #20392B;
+  $hero-color: white;
+  $gradient-angle: 10deg;
+  $hero-image: 'foodontable.jpeg';
+
   background-image: linear-gradient(
       rgba(0, 0, 0, 0.4),
       rgba(0, 0, 0, 0.5)
     ),
     image-url('foodontable.jpeg');
-  background-attachment: fixed;
+  background-color: #22264b;
+  background-position: top;
+  background-repeat: no-repeat;
   background-size: cover;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
+  padding-bottom: 24px;
+
+  .hero-logo img {
+    height: 100%;
+    width: 100%;
+    margin-bottom: 1em;
+    @include media($small-tablet-width){
+      height: 12em;
+      width: auto;
+      margin-bottom: 1em;
+    }
+  }
+
+  .hero-inner {
+    @include outer-container;
+    @include clearfix;
+    margin: auto;
+    padding: 3.5em;
+    text-align: center;
+
+    .hero-copy {
+      text-align: center;
+
+      h1 {
+        color: $hero-color;
+        font-size: 1.2em;
+        margin-bottom: 0.5em;
+        font-family: 'Imprima', sans-serif;
+
+        @include media($small-tablet-width) {
+          font-size: 1.8em;
+        }
+      }
+
+    }
+  }
 }
 
-#login-content {
-  @include outer-container;
-  width: 100%;
+.better-h1 {
   text-align: center;
-  .splash-link {
-    color: white;
-    text-shadow: 2px 4px 3px rgba(0,0,0,0.3);
-    font-size: 20px;
-    text-align: center;
-    padding: 20px;
-    border-radius: 15px;
-    font-family: 'Lato', sans-serif;
-    background-color: rgba(0,0,0,0.7);
-    margin: 10px auto;
-  }
-  .splash-link:hover {
-    background-color: rgba(0,0,0,0.8);
-  }
-  .splash-link {
-    @include span-columns(8);
-    @include shift(2);
-  }
-  .login-form {
-    @include span-columns(8);
-    @include shift(2);
-    color: white;
-    text-shadow: 2px 4px 3px rgba(0,0,0,0.3);
-    font-size: 20px;
-    text-align: center;
-    padding: 20px;
-    border-radius: 15px;
-    font-family: 'Lato', sans-serif;
-    background-color: rgba(0,0,0,0.7);
-    margin-bottom: 15px;
-    a:hover {
-      color: shade(#b56969, 20%);
-    }
-  }
+  font-family: 'Imprima', sans-serif;
+  font-size: 22px;
   @include media($small-tablet-width){
-    .splash-link {
-      font-size: 36px;
-    }
-    .splash-link:hover {
-      background-color: rgba(0,0,0,0.8);
-    }
+    font-size: 2em;
   }
 }

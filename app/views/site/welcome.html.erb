@@ -1,12 +1,69 @@
-<div id="splash-image">
-  <%= render partial: "shared/flash_messages", flash: flash %>
-  <div id="login-content">
-    <%= image_tag "namewhite.png" %>
-    <div class="login-links">
-      <%= link_to '<i class="fa fa-facebook-square"></i> Sign in with Facebook'.html_safe, "/auth/facebook", class:"splash-link" %>
+<div class="hero splash">
+	<div class="hero-inner">
+    <%= render partial: "shared/flash_messages", flash: flash %>
+    <span class="hero-logo"><%= image_tag "trimwhitelogo.png" %></span>
+		<div class="hero-copy">
+			<!-- <h1>Mapping Your Food Adventures</h1> -->
+      <div class="login-links">
+        <br>
+        <%= link_to '<i class="fa fa-facebook-square"></i> Sign in with Facebook'.html_safe, "/auth/facebook", class:"splash-link" %>
+        <%= link_to '<i class="fa fa-envelope"></i> Sign in with Email'.html_safe, "#anchor", class:"splash-link" %>
+      </div>
+      <%= link_to "Create an Account", new_identity_path, class:"new-act-link" %>
+		</div>
+	</div>
+</div>
+<br>
+
+<div class="main">
+
+  <div class="cards">
+    <div class="card">
+      <div class="card-image">
+        <%= image_tag "pinsonmap.png" %>
+      </div>
+      <div class="card-header">
+        My NextNoms
+      </div>
+      <div class="card-copy">
+        <p>
+          NextNoms is designed to help you keep track of your restaurant reccommendations and bucket list items. Easily visualize where you've eaten and where to eat next with custom map markers and filtered lists.
+        </p>
+      </div>
     </div>
-    <br>
+
+    <div class="card">
+      <div class="card-image">
+        <%= image_tag "paella.png" %>
+      </div>
+      <div class="card-header">
+        Restaurant Roulette
+      </div>
+      <div class="card-copy">
+        <p>Can't decide where to eat? Let Restaurant Roulette pick for you! The Roulette tool will return a random restaurant from your NextNoms. Make each new meal an adventure!</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-image">
+        <%= image_tag "sunnytable.png" %>
+      </div>
+      <div class="card-header">
+        Discover Local Restaurants
+      </div>
+      <div class="card-copy">
+        <p>Looking for local restaurants to add to your NextNoms? Use the Discover tool to find the closest restaurants to your current location! Explore new neighborhoods through discovering the local cuisines.</p>
+      </div>
+    </div>
+  </div>
+
+
+  <hr>
+
+  <div id="login-content">
     <div class="login-form">
+      <h1 class="better-h1">Sign In With Email</h1>
+      <a name="anchor"></a>
       <%= form_tag "/auth/identity/callback" do %>
         <div class="field">
           <%= label_tag :auth_key, "Email" %><br>
@@ -18,7 +75,9 @@
         </div>
         <div class="actions"><%= submit_tag "Login", class:"login-btn" %></div>
       <% end %>
-      <%= link_to "Create an Account", new_identity_path %>
+      <br>
+      <%= link_to "Create an Account", new_identity_path, class:"new-act-link" %>
     </div>
   </div>
+
 </div>
