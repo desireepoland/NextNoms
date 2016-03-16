@@ -129,3 +129,14 @@ a.new-act-link:hover {
     font-size: 2em;
   }
 }
+
+
+.login-bg {
+  background-image: linear-gradient(
+      rgba(0, 0, 0, 0.4),
+      rgba(0, 0, 0, 0.4)
+    ),
+    image-url('pizza.jpeg');
+  background-repeat: no-repeat;
+  background-size: cover;
+}

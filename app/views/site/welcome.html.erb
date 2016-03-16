@@ -55,28 +55,27 @@
       </div>
     </div>
   </div>
+</div>
 
-
-  <hr>
-
-  <div id="login-content">
-    <div class="login-form">
-      <h1 class="better-h1">Sign In With Email</h1>
-      <a name="anchor"></a>
-      <%= form_tag "/auth/identity/callback" do %>
-        <div class="field">
-          <%= label_tag :auth_key, "Email" %><br>
-          <%= text_field_tag :auth_key %>
-        </div>
-        <div class="field">
-          <%= label_tag :password %><br>
-          <%= password_field_tag :password %>
-        </div>
-        <div class="actions"><%= submit_tag "Login", class:"login-btn" %></div>
-      <% end %>
-      <br>
-      <%= link_to "Create an Account", new_identity_path, class:"new-act-link" %>
-    </div>
-  </div>
-
+<div class="login-bg">
+	<br>
+	<div id="login-content">
+	  <div class="login-form">
+	    <h1 class="better-h1">Sign In With Email</h1>
+	    <a name="anchor"></a>
+	    <%= form_tag "/auth/identity/callback" do %>
+	      <div class="field">
+	        <%= label_tag :auth_key, "Email" %><br>
+	        <%= text_field_tag :auth_key %>
+	      </div>
+	      <div class="field">
+	        <%= label_tag :password %><br>
+	        <%= password_field_tag :password %>
+	      </div>
+	      <div class="actions"><%= submit_tag "Login", class:"login-btn" %></div>
+	    <% end %>
+	    <br>
+	    <%= link_to "Create an Account", new_identity_path, class:"new-act-link" %>
+	  </div>
+	</div>
 </div>
