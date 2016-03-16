@@ -66,8 +66,6 @@ a.new-act-link:hover {
   color: #b56969;
 }
 
-
-
 .hero.splash {
   $base-border-radius: 3px !default;
   $action-color: #477DCA !default;
@@ -109,7 +107,6 @@ a.new-act-link:hover {
 
     .hero-copy {
       text-align: center;
-
       h1 {
         color: $hero-color;
         font-size: 1.2em;
@@ -120,7 +117,6 @@ a.new-act-link:hover {
           font-size: 1.8em;
         }
       }
-
     }
   }
 }
