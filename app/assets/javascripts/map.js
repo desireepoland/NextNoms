@@ -198,15 +198,12 @@ function initMap() {
           + '" target="_blank">Get Directions</a></div>');
           infowindow.open(map, this);
           map.setCenter(marker.getPosition());
-          $('.selected').removeClass('selected');
-          document.getElementById(placeId).className += "selected";
           $('.expander-trigger').addClass('expander-hidden');
           $("#"+placeId).find('.expander-trigger').removeClass('expander-hidden');
         });
 
-        //remove highlighting and close expander from list item when infowindow closed
+        //close expander from list item when infowindow closed
         google.maps.event.addListener(infowindow, 'closeclick', function () {
-          $('.selected').removeClass('selected');
           $("#"+placeId).find('.expander-trigger').addClass('expander-hidden');
         });
       }
