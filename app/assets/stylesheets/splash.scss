@@ -78,7 +78,7 @@ a.new-act-link:hover {
 
   background-image: linear-gradient(
       rgba(0, 0, 0, 0.4),
-      rgba(0, 0, 0, 0.5)
+      rgba(0, 0, 0, 0.2)
     ),
     image-url('foodontable.jpeg');
   background-color: #22264b;
@@ -92,7 +92,7 @@ a.new-act-link:hover {
     width: 100%;
     margin-bottom: 1em;
     @include media($small-tablet-width){
-      height: 12em;
+      height: 13em;
       width: auto;
       margin-bottom: 1em;
     }
