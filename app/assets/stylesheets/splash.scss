@@ -17,7 +17,11 @@ $small-tablet-width: em(720);
     background-color: rgba(0,0,0,0.7);
     margin-bottom: 15px;
     .field {
-      text-align: left;;
+      text-align: left;
+      font-size: 16px;
+      @include media($small-tablet-width){
+        font-size: 20px;
+      }
     }
     @include media($small-tablet-width){
       @include span-columns(6);
