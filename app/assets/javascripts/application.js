@@ -27,7 +27,7 @@ $(document).ready(function() {
   // filter buttons
   $('.button-group-item').on('click', function(){
     document.cookie = ('filter='+ $(this).data('filter'));
-    window.location.reload();
+    window.location = window.location.origin;
   });
 
   // roulette filter
