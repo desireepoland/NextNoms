@@ -37,17 +37,18 @@ $small-tablet-width: em(720);
   margin: 25px auto 0;
   .splash-link {
     color: white;
-    text-shadow: 2px 4px 3px rgba(0,0,0,0.3);
+    text-shadow: 2px 4px 1px rgba(0,0,0,0.3);
     font-size: 18px;
     text-align: center;
-    padding: 10px;
+    padding: 9px;
     border-radius: 15px;
     font-family: 'Lato', sans-serif;
-    background-color: rgba(5,5,11,0.8);
+    background-color: rgba(5,5,11,0.7);
+    border: white 1px dotted;
     margin: 5px auto;
   }
   .splash-link:hover {
-    background-color: rgba(5,5,11,0.9);
+    background-color: rgba(5,5,11,0.8);
   }
   .splash-link {
     @include span-columns(12);
