@@ -23,3 +23,12 @@ function addPriceLevel(place, htmlStr){
   }
   return htmlStr;
 }
+
+function markerHash(iconImage){
+  return {
+      url: iconImage, // url
+      scaledSize: new google.maps.Size(32, 43), // scaled size
+      origin: new google.maps.Point(0, 0), // origin
+      anchor: new google.maps.Point(16, 43) // anchor
+  }
+}

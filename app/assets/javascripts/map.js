@@ -147,12 +147,7 @@ function initMap() {
         // Add above info into restaurant's expander div
         $("#"+placeId).find('div').prepend(htmlStr + '<br>');
 
-        var icon = {
-            url: iconImage, // url
-            scaledSize: new google.maps.Size(32, 43), // scaled size
-            origin: new google.maps.Point(0, 0), // origin
-            anchor: new google.maps.Point(16, 43) // anchor
-        };
+        var icon = markerHash(iconImage);
 
         // Add a marker on map for each restaurant
         var marker = new google.maps.Marker({
