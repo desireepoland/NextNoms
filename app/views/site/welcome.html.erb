@@ -8,7 +8,6 @@
         <%= link_to '<i class="fa fa-facebook-square"></i> Sign in with Facebook'.html_safe, "/auth/facebook", class:"splash-link" %>
         <%= link_to '<i class="fa fa-envelope"></i> Sign in with Email'.html_safe, "#anchor", class:"splash-link" %>
       </div>
-      <%= link_to "Create an Account", new_identity_path, class:"new-act-link" %>
 		</div>
 	</div>
 </div>
@@ -74,8 +73,8 @@
 	      </div>
 	      <div class="actions"><%= submit_tag "Login", class:"login-btn" %></div>
 	    <% end %>
-	    <br>
-	    <%= link_to "Create an Account", new_identity_path, class:"new-act-link" %>
+	    <br><br>
+	    <%= link_to "New?  Create an Account", new_identity_path, class:"new-act-link" %>
 	  </div>
 	</div>
 </div>
