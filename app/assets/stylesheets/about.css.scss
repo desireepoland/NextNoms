@@ -96,7 +96,7 @@ $small-tablet-width: em(720);
   border-radius: $base-border-radius;
   border: $card-border;
   box-shadow: 0 2px 4px darken($base-background-color, 10%);
-  cursor: pointer;
+  // cursor: pointer;
   margin: 0 $card-margin $base-spacing $card-margin;
   position: relative;
 
@@ -138,7 +138,7 @@ $small-tablet-width: em(720);
 
   &:focus,
   &:hover {
-    cursor: pointer;
+    // cursor: pointer;
 
     img {
       opacity: $card-image-hover-opacity;
