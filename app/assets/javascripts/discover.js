@@ -106,12 +106,7 @@ function addMarker(place) {
     map: dMap,
     position: place.geometry.location,
     title: place.name,
-    icon: {
-      url: "https://dl.dropboxusercontent.com/u/63083085/NextNoms/yellowmarker.png",
-      scaledSize: new google.maps.Size(32, 43), // scaled size
-      origin: new google.maps.Point(0, 0), // origin
-      anchor: new google.maps.Point(16, 43) // anchor
-    }
+    icon: markerHash("https://dl.dropboxusercontent.com/u/63083085/NextNoms/yellowmarker.png")
   });
 
   google.maps.event.addListener(marker, 'click', function () {
