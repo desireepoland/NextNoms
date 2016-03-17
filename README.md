@@ -1,5 +1,5 @@
 # NextNoms
-NextNoms is designed to help you keep track of your restaurant recommendations and bucket list items. Easily visualize where you've eaten and where to eat next with custom map markers and filtered lists. NextNoms was developed with a mobile-first design approach.
+NextNoms is designed to help you keep track of your restaurant recommendations and bucket list items. Easily visualize where you've eaten and where to eat next with custom map markers and filtered lists. NextNoms was developed with a mobile-first design approach. Available at www.nextnoms.com.
 - Additional Features:
   - Restaurant Roulette - Chooses a random restaurant from your list for you
   - Discover - Returns the 20 restaurants closest to your current location
