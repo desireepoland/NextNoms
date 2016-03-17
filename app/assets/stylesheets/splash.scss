@@ -43,12 +43,11 @@ $small-tablet-width: em(720);
     padding: 9px;
     border-radius: 15px;
     font-family: 'Lato', sans-serif;
-    background-color: rgba(5,5,11,0.7);
-    border: white 1px dotted;
+    background-color: rgba(5,5,11,0.8);
     margin: 5px auto;
   }
   .splash-link:hover {
-    background-color: rgba(5,5,11,0.8);
+    background-color: rgba(5,5,11,0.9);
   }
   .splash-link {
     @include span-columns(12);
