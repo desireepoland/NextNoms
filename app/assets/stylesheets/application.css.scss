@@ -121,7 +121,7 @@ section{
     .map-section {
       @include span-columns(7);
       #map {
-        height: 473px;
+        height: 508px;
       }
     }
     .r-info {
@@ -131,7 +131,7 @@ section{
         margin-top: 0;
       }
       ul {
-        height: 400px;
+        height: 435px;
         overflow: auto;
       }
       ul::-webkit-scrollbar {
