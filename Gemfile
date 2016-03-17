@@ -40,6 +40,8 @@ gem 'neat'
 gem 'will_paginate', '~> 3.0.6'
 gem 'rack-canonical-host'
 
+gem "codeclimate-test-reporter", group: :test, require: nil
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
