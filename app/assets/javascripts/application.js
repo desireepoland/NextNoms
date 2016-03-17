@@ -16,7 +16,7 @@
 //= require react
 //= require react_ujs
 //= require components
-
+//= require utility
 //= require_tree .
 $(document).ready(function() {
   // list expanders

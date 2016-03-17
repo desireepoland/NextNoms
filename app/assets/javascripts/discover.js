@@ -53,19 +53,9 @@ function callback(results, status) {
         if(place.rating !== undefined){
           htmlStr += '<i class="fa fa-star"></i>&emsp;Average Rating: ' + place.rating + '<br>';
         }
-        if(place.price_level === 0){
-          htmlStr += '<i class="fa fa-money"></i>&emsp;Price Range: Free<br>';
-        }else if(place.price_level === 1){
-          htmlStr += '<i class="fa fa-money"></i>&emsp;Price Range: $<br>';
-        }else if(place.price_level === 2){
-          htmlStr += '<i class="fa fa-money"></i>&emsp;Price Range: $$<br>';
-        }else if(place.price_level === 3){
-          htmlStr += '<i class="fa fa-money"></i>&emsp;Price Range: $$$<br>';
-        }else if(place.price_level === 1){
-          htmlStr += '<i class="fa fa-money"></i>&emsp;Price Range: $$$$<br>';
-        } else {
-          htmlStr += '';
-        }
+
+        htmlStr = addPriceLevel(place, htmlStr);
+
         if(place.opening_hours !== undefined){
           htmlStr += '<i class="fa fa-clock-o"></i>&emsp;' + (place.opening_hours.open_now ? '<span class="open">Open Now</span><br>' : '<span class="closed">Currently Closed</span><br>');
         }

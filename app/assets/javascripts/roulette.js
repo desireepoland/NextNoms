@@ -41,19 +41,10 @@ function initRouletteMap() {
             });
 
             // Set Up info window for restaurant, center map on it
-            infowindow.setContent('<div><strong>' + place.name + '</strong><br>' +
-            place.formatted_address + '<br><a href="https://www.google.com/maps/dir/Current+Location/'
-            + place.geometry.location.lat().toString()+','+ place.geometry.location.lng().toString()
-            + '" target="_blank">Get Directions</a></div>');
-            infowindow.open(rMap, marker);
-            rMap.setCenter(place.geometry.location);
+            selectPlace(marker, place, rMap, infowindow);
 
             google.maps.event.addListener(marker, 'click', function () {
-                infowindow.setContent('<div><strong>' + place.name + '</strong><br>' +
-                place.formatted_address + '<br><a href="https://www.google.com/maps/dir/Current+Location/'
-                + place.geometry.location.lat().toString()+',' + place.geometry.location.lng().toString()
-                + '" target="_blank">Get Directions</a></div>');
-                infowindow.open(rMap, this);
+              selectPlace(marker, place, rMap, infowindow);
             });
 
 
@@ -80,19 +71,7 @@ function initRouletteMap() {
                 htmlStr += '<i class="fa fa-star"></i>&emsp;Average Rating: ' + place.rating + '<br>';
               }
 
-              if(place.price_level === 0){
-                htmlStr += '<i class="fa fa-money"></i>&emsp;Price Range: Free<br>';
-              }else if(place.price_level === 1){
-                htmlStr += '<i class="fa fa-money"></i>&emsp;Price Range: $<br>';
-              }else if(place.price_level === 2){
-                htmlStr += '<i class="fa fa-money"></i>&emsp;Price Range: $$<br>';
-              }else if(place.price_level === 3){
-                htmlStr += '<i class="fa fa-money"></i>&emsp;Price Range: $$$<br>';
-              }else if(place.price_level === 1){
-                htmlStr += '<i class="fa fa-money"></i>&emsp;Price Range: $$$$<br>';
-              } else {
-                htmlStr += '';
-              }
+              htmlStr = addPriceLevel(place, htmlStr);
 
               if(place.opening_hours !== undefined){
                 htmlStr += '<i class="fa fa-clock-o"></i>&emsp;' + (place.opening_hours.open_now ? '<span class="open">Open Now</span><br>' : '<span class="closed">Currently Closed</span><br>');
