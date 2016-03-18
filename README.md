@@ -11,7 +11,7 @@ My applications competition would primarily be traditional bucket list apps, usi
 ####User Personas:
 The main target user group would include tech-savvy people primarily in metropolitan areas. Self-proclaimed "foodies". Key characteristics include a love of trying new things(/foods) and a desire to be organized.
 
-## Technologies
+### Technologies
 - Google Places API & Google Maps API
 - Facebook Third Party Oauth
 - Travis CI
