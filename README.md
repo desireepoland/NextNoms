@@ -21,6 +21,7 @@ The main target user group would include people with a love of trying new things
 - Ruby on Rails
 - HTML & CSS
 - Javascript & jQuery
+- Rspec
 - AWS RDS for PostgreSQL
 - AWS EC2 via ElasticBeanstalk
 
