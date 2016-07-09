@@ -11,7 +11,7 @@ My applications competition would primarily be traditional bucket list apps, usi
 #### User Personas:
 The main target user group would include people with a love of trying new things(/foods) and a desire to be organized, primarily in metropolitan areas.
 
-### Technologies
+#### Technologies:
 - Google Places API & Google Maps API
 - Facebook Third Party Oauth
 - Travis CI
@@ -25,7 +25,7 @@ The main target user group would include people with a love of trying new things
 - AWS RDS for PostgreSQL
 - AWS EC2 via ElasticBeanstalk
 
-### Future Features & Ideas
+#### Future Features & Ideas:
 - Options for multiple NextNoms lists for users - separate into categories such as city, meal, etc. or add tag options for this
 - Integrate a front-end javascript framework
 - Social Aspect - Add friends, share lists, see which friends want to eat at the same places, suggestions for new eateries based on friends' lists
